@@ -6,7 +6,7 @@
 
         void Stop();
 
-        void Configure();
+        void Configure(DroneConfiguration.DroneConfiguration droneConfiguration);
 
         void MoveUp();
 
