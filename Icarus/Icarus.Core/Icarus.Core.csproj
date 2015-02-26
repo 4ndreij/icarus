@@ -37,7 +37,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DroneConfiguration\DroneConfiguration.cs" />
     <Compile Include="InputProviderAdapter\InputProviderAdapter.cs" />
+    <Compile Include="Interfaces\IDroneClient.cs" />
     <Compile Include="Interfaces\IInputProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
