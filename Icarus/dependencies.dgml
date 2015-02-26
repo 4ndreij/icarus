@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="D:\Work\icarus\Icarus\Icarus.Core.Tests\Icarus.Core.Tests.csproj" Category="CSProject" Bounds="307.931666666667,0,163.306666666667,85.96" Group="Expanded" Label="Icarus.Core.Tests" />
+    <Node Id="D:\Work\icarus\Icarus\Icarus.Core.Tests\bin\Debug\Icarus.Core.Tests.dll" Bounds="327.931666666667,40,123.306666666667,25.96" Label="Icarus.Core.Tests.dll" />
+    <Node Id="D:\Work\icarus\Icarus\Icarus.Core\Icarus.Core.csproj" Category="CSProject" Bounds="0,231.92,133.89,85.96" Group="Expanded" Label="Icarus.Core" />
+    <Node Id="D:\Work\icarus\Icarus\Icarus.Core\bin\Debug\Icarus.Core.dll" Bounds="20,271.92,93.89,25.96" Label="Icarus.Core.dll" />
+    <Node Id="D:\Work\icarus\Icarus\Icarus.Infrastructure.Tests\Icarus.Infrastructure.Tests.csproj" Category="CSProject" Bounds="307.931666666667,115.96,209.39,85.96" Group="Expanded" Label="Icarus.Infrastructure.Tests" />
+    <Node Id="D:\Work\icarus\Icarus\Icarus.Infrastructure.Tests\bin\Debug\Icarus.Infrastructure.Tests.dll" Bounds="327.931666666667,155.96,169.39,25.96" Label="Icarus.Infrastructure.Tests.dll" />
+    <Node Id="D:\Work\icarus\Icarus\Icarus.Infrastructure\Icarus.Infrastructure.csproj" Category="CSProject" Bounds="97.9583333333333,115.96,179.973333333333,85.96" Group="Expanded" Label="Icarus.Infrastructure" />
+    <Node Id="D:\Work\icarus\Icarus\Icarus.Infrastructure\bin\Debug\Icarus.Infrastructure.dll" Bounds="117.958333333333,155.96,139.973333333333,25.96" Label="Icarus.Infrastructure.dll" />
+    <Node Id="D:\Work\icarus\Icarus\Icarus.UI\Icarus.UI.csproj" Category="CSProject" Bounds="4.14666666666662,0,125.596666666667,85.96" Group="Expanded" Label="Icarus.UI" />
+    <Node Id="D:\Work\icarus\Icarus\Icarus.UI\bin\Debug\Icarus.UI.exe" Bounds="24.1466666666666,40,85.5966666666667,25.96" Label="Icarus.UI.exe" />
+  </Nodes>
+  <Links>
+    <Link Source="D:\Work\icarus\Icarus\Icarus.Core.Tests\Icarus.Core.Tests.csproj" Target="D:\Work\icarus\Icarus\Icarus.Core.Tests\bin\Debug\Icarus.Core.Tests.dll" Category="Contains" />
+    <Link Source="D:\Work\icarus\Icarus\Icarus.Core\Icarus.Core.csproj" Target="D:\Work\icarus\Icarus\Icarus.Core\bin\Debug\Icarus.Core.dll" Category="Contains" />
+    <Link Source="D:\Work\icarus\Icarus\Icarus.Infrastructure.Tests\Icarus.Infrastructure.Tests.csproj" Target="D:\Work\icarus\Icarus\Icarus.Infrastructure.Tests\bin\Debug\Icarus.Infrastructure.Tests.dll" Category="Contains" />
+    <Link Source="D:\Work\icarus\Icarus\Icarus.Infrastructure\Icarus.Infrastructure.csproj" Target="D:\Work\icarus\Icarus\Icarus.Core\Icarus.Core.csproj" Bounds="118.290901184082,201.919998168945,24.8060531616211,23.7728118896484" />
+    <Link Source="D:\Work\icarus\Icarus\Icarus.Infrastructure\Icarus.Infrastructure.csproj" Target="D:\Work\icarus\Icarus\Icarus.Infrastructure\bin\Debug\Icarus.Infrastructure.dll" Category="Contains" />
+    <Link Source="D:\Work\icarus\Icarus\Icarus.UI\Icarus.UI.csproj" Target="D:\Work\icarus\Icarus\Icarus.Core\Icarus.Core.csproj" Bounds="66.9449996948242,85.9599990844727,0,136.959999084473" />
+    <Link Source="D:\Work\icarus\Icarus\Icarus.UI\Icarus.UI.csproj" Target="D:\Work\icarus\Icarus\Icarus.Infrastructure\Icarus.Infrastructure.csproj" Bounds="111.79305267334,85.9599990844727,24.8060531616211,23.7728042602539" />
+    <Link Source="D:\Work\icarus\Icarus\Icarus.UI\Icarus.UI.csproj" Target="D:\Work\icarus\Icarus\Icarus.UI\bin\Debug\Icarus.UI.exe" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="CSProject" Background="#FF3A8F35" />
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+  </Categories>
+  <Properties>
+    <Property Id="Background" Label="Background" Description="The background color" DataType="System.Windows.Media.Brush" />
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+  </Properties>
+</DirectedGraph>
