@@ -53,6 +53,7 @@
     <Compile Include="DroneConfiguration\DroneConfiguration.cs" />
     <Compile Include="Enums\CommandType.cs" />
     <Compile Include="InputProviderAdapter\InputProviderAdapter.cs" />
+    <Compile Include="Interfaces\IAppLogger.cs" />
     <Compile Include="Interfaces\ICommunicator.cs" />
     <Compile Include="Interfaces\IDroneClient.cs" />
     <Compile Include="Interfaces\IInputProvider.cs" />
