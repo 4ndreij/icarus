@@ -4,14 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StructureMap;
+using Icarus.Core.Interfaces;
+using log4net;
+using Icarus.Infrastructure.CommandFactory;
+using Icarus.Core.DroneClients;
 
 namespace Icarus.UI
 {
     public class Bootstrapper
     {
-        public void Bootstrap()
+        public IContainer Bootstrap()
         {
-            //Container.For<ICommandFactory>().Use(CommandFactory);
+            var logger = ConfigureLogger();
+            var container = new Container(x =>
+            {
+                x.For<ILog>().Use(logger);
+                x.For<IDroneClient>().Use<WifiClient>();
+                x.For<ICommandFactory>().Use<CommandFactory>();
+            });
+            return container;
+        }
+
+        ILog ConfigureLogger()
+        {
+            log4net.Config.XmlConfigurator.Configure();
+            return LogManager.GetLogger("DroneLogger");
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Icarus.Core.Commands;
+using Icarus.Core.DroneConfiguration;
+using Icarus.Core.Enums;
+using Icarus.Core.Interfaces;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -26,7 +30,27 @@ namespace Icarus.UI
         public MainWindow()
         {
             InitializeComponent();
-            ToggleButtonsState(false);
+            ToggleButtonsState(false); 
+            ConfigureDrone();
+        }
+
+        ICommandFactory CommandFactory
+        {
+            get
+            {
+                return App.Container.GetInstance<ICommandFactory>();
+            }
+        }
+
+        void ConfigureDrone()
+        {
+            var configureCommand = CommandFactory.CreateCommand(CommandType.Configure);
+            ((ConfigureCommand)configureCommand)
+                .SetConfiguration(new DroneConfiguration()
+                {
+                    // configuration parameters go here
+                });
+            configureCommand.Execute();
         }
 
         void ToggleButtonsState(bool enabled)
@@ -41,8 +65,8 @@ namespace Icarus.UI
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            //var commandFactory = 
-            //var startCommand = 
+            var startCommand = CommandFactory.CreateCommand(CommandType.Start);
+            startCommand.Execute();
 
             btnStart.IsEnabled = false;
             btnStop.IsEnabled = true;
@@ -53,6 +77,9 @@ namespace Icarus.UI
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
+            var stopCommand = CommandFactory.CreateCommand(CommandType.Stop);
+            stopCommand.Execute();
+
             btnStop.IsEnabled = false;
             btnStart.IsEnabled = true;
 
@@ -76,31 +103,43 @@ namespace Icarus.UI
         private void btnUp_Click(object sender, RoutedEventArgs e)
         {
             AddCommandToList(upCommandMessage);
+            var upCommand = CommandFactory.CreateCommand(CommandType.MoveUp);
+            upCommand.Execute();
         }
 
         private void btnDown_Click(object sender, RoutedEventArgs e)
         {
             AddCommandToList(downCommandMessage);
+            var downCommand = CommandFactory.CreateCommand(CommandType.MoveDown);
+            downCommand.Execute();
         }
 
         private void btnLeft_Click(object sender, RoutedEventArgs e)
         {
             AddCommandToList(leftCommandMessage);
+            var leftCommand = CommandFactory.CreateCommand(CommandType.MoveLeft);
+            leftCommand.Execute();
         }
 
         private void btnRight_Click(object sender, RoutedEventArgs e)
         {
             AddCommandToList(rightCommandMessage);
+            var rightCommand = CommandFactory.CreateCommand(CommandType.MoveRight);
+            rightCommand.Execute();
         }
 
         private void btnForward_Click(object sender, RoutedEventArgs e)
         {
             AddCommandToList(fwdCommandMessage);
+            var fwdCommand = CommandFactory.CreateCommand(CommandType.MoveForward);
+            fwdCommand.Execute();
         }
 
         private void btnBackward_Click(object sender, RoutedEventArgs e)
         {
             AddCommandToList(bwdCommandMessage);
+            var backCommand = CommandFactory.CreateCommand(CommandType.MoveBackward);
+            backCommand.Execute();
         }
 
         void AddCommandToList(string commandMessage)

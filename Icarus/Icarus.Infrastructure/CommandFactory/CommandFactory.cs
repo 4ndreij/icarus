@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Icarus.Infrastructure.CommandFactory
 {
-    public class CommandFactory
+    public class CommandFactory : ICommandFactory
     {
         IDroneClient droneClient;
 
