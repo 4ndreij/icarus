@@ -11,7 +11,7 @@ namespace Icarus.UI
         {
             var bootstrapper = new Bootstrapper();
             bootstrapper.Bootstrap();
-            base.OnStartup(e);
+        
         }
 
     }
