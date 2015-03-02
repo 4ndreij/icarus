@@ -16,9 +16,8 @@ namespace Icarus.UI
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            var log4netConfigFile = ConfigurationManager.AppSettings["log4ConfigurationFile"];
             var bootstrapper = new Bootstrapper();
-            container = bootstrapper.Bootstrap(log4netConfigFile);
+            container = bootstrapper.Bootstrap();
             Logger.Info("Application Started");
         }
 

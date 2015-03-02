@@ -11,7 +11,7 @@ namespace Icarus.UI
 {
     public class Bootstrapper
     {
-        public IContainer Bootstrap(string loggerConfigFile)
+        public IContainer Bootstrap()
         {
             var logger = ConfigureLogger();
             var container = new Container(x =>
