@@ -42,6 +42,14 @@ namespace Icarus.UI
             }
         }
 
+        ICommunicator Communicator
+        {
+            get
+            {
+                return App.Container.GetInstance<ICommunicator>();
+            }
+        }
+
         void ConfigureDrone()
         {
             var configureCommand = CommandFactory.CreateCommand(CommandType.Configure);
@@ -50,7 +58,7 @@ namespace Icarus.UI
                 {
                     // configuration parameters go here
                 });
-            configureCommand.Execute();
+            Communicator.ExecuteCommand(configureCommand);
         }
 
         void ToggleButtonsState(bool enabled)
@@ -66,7 +74,7 @@ namespace Icarus.UI
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             var startCommand = CommandFactory.CreateCommand(CommandType.Start);
-            startCommand.Execute();
+            Communicator.ExecuteCommand(startCommand);
 
             btnStart.IsEnabled = false;
             btnStop.IsEnabled = true;
@@ -78,7 +86,7 @@ namespace Icarus.UI
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
             var stopCommand = CommandFactory.CreateCommand(CommandType.Stop);
-            stopCommand.Execute();
+            Communicator.ExecuteCommand(stopCommand);
 
             btnStop.IsEnabled = false;
             btnStart.IsEnabled = true;
@@ -104,42 +112,42 @@ namespace Icarus.UI
         {
             AddCommandToList(upCommandMessage);
             var upCommand = CommandFactory.CreateCommand(CommandType.MoveUp);
-            upCommand.Execute();
+            Communicator.ExecuteCommand(upCommand);
         }
 
         private void btnDown_Click(object sender, RoutedEventArgs e)
         {
             AddCommandToList(downCommandMessage);
             var downCommand = CommandFactory.CreateCommand(CommandType.MoveDown);
-            downCommand.Execute();
+            Communicator.ExecuteCommand(downCommand);
         }
 
         private void btnLeft_Click(object sender, RoutedEventArgs e)
         {
             AddCommandToList(leftCommandMessage);
             var leftCommand = CommandFactory.CreateCommand(CommandType.MoveLeft);
-            leftCommand.Execute();
+            Communicator.ExecuteCommand(leftCommand);
         }
 
         private void btnRight_Click(object sender, RoutedEventArgs e)
         {
             AddCommandToList(rightCommandMessage);
             var rightCommand = CommandFactory.CreateCommand(CommandType.MoveRight);
-            rightCommand.Execute();
+            Communicator.ExecuteCommand(rightCommand);
         }
 
         private void btnForward_Click(object sender, RoutedEventArgs e)
         {
             AddCommandToList(fwdCommandMessage);
             var fwdCommand = CommandFactory.CreateCommand(CommandType.MoveForward);
-            fwdCommand.Execute();
+            Communicator.ExecuteCommand(fwdCommand);
         }
 
         private void btnBackward_Click(object sender, RoutedEventArgs e)
         {
             AddCommandToList(bwdCommandMessage);
             var backCommand = CommandFactory.CreateCommand(CommandType.MoveBackward);
-            backCommand.Execute();
+            Communicator.ExecuteCommand(backCommand);
         }
 
         void AddCommandToList(string commandMessage)
@@ -147,7 +155,6 @@ namespace Icarus.UI
             lstMessageWindow.Items.Add(commandMessage + " - " + DateTime.Now.ToString());
             lstMessageWindow.SelectedIndex = lstMessageWindow.Items.Count - 1;
             lstMessageWindow.ScrollIntoView(lstMessageWindow.SelectedItem);
-
         }
     }
 }
