@@ -1,4 +1,5 @@
 ﻿using Icarus.Core.Interfaces;
+using log4net;
 using StructureMap;
 using System.Configuration;
 using System.Windows;
@@ -18,14 +19,20 @@ namespace Icarus.UI
             var log4netConfigFile = ConfigurationManager.AppSettings["log4ConfigurationFile"];
             var bootstrapper = new Bootstrapper();
             container = bootstrapper.Bootstrap(log4netConfigFile);
-            var logger = container.GetInstance<IAppLogger>();
-            logger.LogInfo("App event", "Application Started");
+            Logger.Info("Application Started");
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            var logger = container.GetInstance<IAppLogger>();
-            logger.LogError("Generic app error caught", "Event Application_DispatcherUnhandledException", e.Exception);
+            Logger.Error("Generic app error - Event Application_DispatcherUnhandledException", e.Exception);
+        }
+
+        ILog Logger
+        {
+            get
+            {
+                return container.GetInstance<ILog>();
+            }
         }
     }
 }

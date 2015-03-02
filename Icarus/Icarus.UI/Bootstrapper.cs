@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StructureMap;
 using Icarus.Core.Interfaces;
-using Icarus.Infrastructure.Logging;
+using log4net;
 
 namespace Icarus.UI
 {
@@ -13,14 +13,19 @@ namespace Icarus.UI
     {
         public IContainer Bootstrap(string loggerConfigFile)
         {
+            var logger = ConfigureLogger();
             var container = new Container(x =>
             {
-                x.For<IAppLogger>()
-                    .Use<AppLogger>()
-                    .Ctor<string>().Is(loggerConfigFile);
+                x.For<ILog>().Use(logger);
  
             });
             return container;
+        }
+
+        ILog ConfigureLogger()
+        {
+            log4net.Config.XmlConfigurator.Configure();
+            return LogManager.GetLogger("DroneLogger");
         }
     }
 }
