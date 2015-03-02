@@ -16,8 +16,8 @@ namespace Icarus.Infrastructure.Logging
 
         public AppLogger(string configFilePath)
         {
-            logger = LogManager.GetLogger("DroneLogger");
             log4net.Config.XmlConfigurator.Configure(new FileInfo(configFilePath));
+            logger = LogManager.GetLogger("DroneLogger");
         }
 
         public void LogInfo(string subject, string message)
