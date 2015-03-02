@@ -37,6 +37,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CommandFactory\CommandFactory.cs" />
+    <Compile Include="Communication\CommandInvoker.cs" />
     <Compile Include="InputProviders\KeyboardInputProvider.cs" />
     <Compile Include="InputProviders\KinectInputProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,7 +53,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Communication\" />
     <Folder Include="Logging\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
