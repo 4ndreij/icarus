@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -88,7 +89,7 @@ namespace Icarus.UI
         void SetDroneConnectionImage(string imagePath)
         {
             var currentDirectory = Directory.GetCurrentDirectory();
-            var image = Image.FromFile(currentDirectory + imagePath);
+            var image = System.Drawing.Image.FromFile(currentDirectory + imagePath);
             var imageMem = new MemoryStream();
             image.Save(imageMem, ImageFormat.Png);
             var bmp = new BitmapImage();
@@ -145,6 +146,19 @@ namespace Icarus.UI
             lstMessageWindow.Items.Add(commandMessage + " - " + DateTime.Now.ToString());
             lstMessageWindow.SelectedIndex = lstMessageWindow.Items.Count - 1;
             lstMessageWindow.ScrollIntoView(lstMessageWindow.SelectedItem);
+        }
+
+        private void btnSendCommand_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO: we might consider this unique button handler approach, instead of one handler for each button defined above
+
+            //AddCommandToList(Constants.BwdCommandMessage); TODO: turn this into a dictionary of messages for each command type
+
+            var button = (Button)sender;
+            CommandType commandType;
+            Enum.TryParse(button.Tag.ToString(), out commandType);
+            var command = CommandFactory.CreateCommand(commandType);
+            Communicator.ExecuteCommand(command);
         }
     }
 }

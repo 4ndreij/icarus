@@ -8,14 +8,15 @@ namespace Icarus.Core.Enums
 {
     public enum CommandType
     {
-         Start,
-         Stop,
-         Configure,
-         MoveUp,
-         MoveDown,
-         MoveForward,
-         MoveBackward,
-         MoveLeft,
-         MoveRight
+        Undefined,
+        Start,
+        Stop,
+        Configure,
+        MoveUp,
+        MoveDown,
+        MoveForward,
+        MoveBackward,
+        MoveLeft,
+        MoveRight
     }
 }

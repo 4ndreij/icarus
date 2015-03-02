@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525" Icon="Images/drone.png">
     <Grid Margin="0,0,2,0">
-        <Button x:Name="btnUp" Content="Up" HorizontalAlignment="Left" Margin="34,241,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="btnUp_Click"/>
+        <Button Tag="MoveUp"  x:Name="btnUp" Content="Up" HorizontalAlignment="Left" Margin="34,241,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="btnSendCommand_Click"/>
         <Button x:Name="btnDown" Content="Down" HorizontalAlignment="Left" Margin="34,283,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="btnDown_Click"/>
         <Button x:Name="btnLeft" Content="Left" HorizontalAlignment="Left" Margin="103,241,0,0" VerticalAlignment="Top" Width="36" Height="20" Click="btnLeft_Click"/>
         <Button x:Name="btnForward" Content="Fwd" HorizontalAlignment="Left" Margin="175,241,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="btnForward_Click"/>
