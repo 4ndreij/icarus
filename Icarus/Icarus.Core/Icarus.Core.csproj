@@ -37,9 +37,24 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\ConfigureCommand.cs" />
+    <Compile Include="Commands\ICommandFactory.cs" />
+    <Compile Include="Commands\MoveBackward.cs" />
+    <Compile Include="Commands\MoveBackwardCommand.cs" />
+    <Compile Include="Commands\MoveDownCommand.cs" />
+    <Compile Include="Commands\MoveForwardCommand.cs" />
+    <Compile Include="Commands\MoveLeftCommand.cs" />
+    <Compile Include="Commands\MoveRightCommand.cs" />
+    <Compile Include="Commands\MoveUpCommand.cs" />
+    <Compile Include="Commands\StartCommand.cs" />
+    <Compile Include="Commands\StopCommand.cs" />
+    <Compile Include="DroneClients\WifiClient.cs" />
     <Compile Include="DroneConfiguration\DroneConfiguration.cs" />
+    <Compile Include="Enums\CommandType.cs" />
     <Compile Include="InputProviderAdapter\InputProviderAdapter.cs" />
     <Compile Include="Interfaces\IAppLogger.cs" />
+    <Compile Include="Interfaces\ICommunicator.cs" />
     <Compile Include="Interfaces\IDroneClient.cs" />
     <Compile Include="Interfaces\IInputProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -47,9 +62,7 @@
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DroneClients\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
