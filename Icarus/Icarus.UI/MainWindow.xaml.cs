@@ -17,16 +17,6 @@ namespace Icarus.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        const string onlineImagePath = @"\Images\online.png";
-        const string offlineImagePath = @"\Images\offline.png";
-
-        const string upCommandMessage = "Go Up";
-        const string downCommandMessage = "Go Down";
-        const string leftCommandMessage = "Go Left";
-        const string rightCommandMessage = "Go Right";
-        const string fwdCommandMessage = "Go Forward";
-        const string bwdCommandMessage = "Go Backward";
-
         public MainWindow()
         {
             InitializeComponent();
@@ -79,7 +69,7 @@ namespace Icarus.UI
             btnStart.IsEnabled = false;
             btnStop.IsEnabled = true;
 
-            SetDroneConnectionImage(onlineImagePath);
+            SetDroneConnectionImage(Constants.OnlineImagePath);
             ToggleButtonsState(true);
         }
 
@@ -91,7 +81,7 @@ namespace Icarus.UI
             btnStop.IsEnabled = false;
             btnStart.IsEnabled = true;
 
-            SetDroneConnectionImage(offlineImagePath);
+            SetDroneConnectionImage(Constants.OfflineImagePath);
             ToggleButtonsState(false);
         }
 
@@ -110,42 +100,42 @@ namespace Icarus.UI
 
         private void btnUp_Click(object sender, RoutedEventArgs e)
         {
-            AddCommandToList(upCommandMessage);
+            AddCommandToList(Constants.UpCommandMessage);
             var upCommand = CommandFactory.CreateCommand(CommandType.MoveUp);
             Communicator.ExecuteCommand(upCommand);
         }
 
         private void btnDown_Click(object sender, RoutedEventArgs e)
         {
-            AddCommandToList(downCommandMessage);
+            AddCommandToList(Constants.DownCommandMessage);
             var downCommand = CommandFactory.CreateCommand(CommandType.MoveDown);
             Communicator.ExecuteCommand(downCommand);
         }
 
         private void btnLeft_Click(object sender, RoutedEventArgs e)
         {
-            AddCommandToList(leftCommandMessage);
+            AddCommandToList(Constants.LeftCommandMessage);
             var leftCommand = CommandFactory.CreateCommand(CommandType.MoveLeft);
             Communicator.ExecuteCommand(leftCommand);
         }
 
         private void btnRight_Click(object sender, RoutedEventArgs e)
         {
-            AddCommandToList(rightCommandMessage);
+            AddCommandToList(Constants.RightCommandMessage);
             var rightCommand = CommandFactory.CreateCommand(CommandType.MoveRight);
             Communicator.ExecuteCommand(rightCommand);
         }
 
         private void btnForward_Click(object sender, RoutedEventArgs e)
         {
-            AddCommandToList(fwdCommandMessage);
+            AddCommandToList(Constants.FwdCommandMessage);
             var fwdCommand = CommandFactory.CreateCommand(CommandType.MoveForward);
             Communicator.ExecuteCommand(fwdCommand);
         }
 
         private void btnBackward_Click(object sender, RoutedEventArgs e)
         {
-            AddCommandToList(bwdCommandMessage);
+            AddCommandToList(Constants.BwdCommandMessage);
             var backCommand = CommandFactory.CreateCommand(CommandType.MoveBackward);
             Communicator.ExecuteCommand(backCommand);
         }
