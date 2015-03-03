@@ -18,89 +18,152 @@ namespace Icarus.Infrastructure.Tests
         CommandFactory.CommandFactory commandFactory;
         Mock<IDroneClient> droneClientMock;
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void Setup()
         {
             droneClientMock = new Mock<IDroneClient>();
             commandFactory = new CommandFactory.CommandFactory(droneClientMock.Object);
-
         }
 
         [Test]
         public void WhenRequiredMoveUp_ShouldReturnMoveUpCommand()
         {
-            var actualCommand = commandFactory.CreateCommand(CommandType.MoveUp);
+            // arrange
+            var commandType = CommandType.MoveUp;
+
+            // act
+            var actualCommand = commandFactory.CreateCommand(commandType);
+
+            // assert
             Assert.IsInstanceOf<MoveUpCommand>(actualCommand);
         }
 
         [Test]
         public void WhenRequiredMoveDown_ShouldReturnMoveDownCommand()
-        {
-            var actualCommand = commandFactory.CreateCommand(CommandType.MoveDown);
+        { 
+            // arrange
+            var commandType = CommandType.MoveDown;
+            
+            // act
+            var actualCommand = commandFactory.CreateCommand(commandType);
+            
+            // assert
             Assert.IsInstanceOf<MoveDownCommand>(actualCommand);
         }
 
         [Test]
         public void WhenRequiredMoveLeft_ShouldReturnMoveLeftCommand()
-        {
-            var actualCommand = commandFactory.CreateCommand(CommandType.MoveLeft);
+        { 
+            // arrange
+            var commandType = CommandType.MoveLeft;
+
+            // act
+            var actualCommand = commandFactory.CreateCommand(commandType);
+
+            // assert
             Assert.IsInstanceOf<MoveLeftCommand>(actualCommand);
         }
 
         [Test]
         public void WhenRequiredMoveRight_ShouldReturnMoveRightCommand()
-        {
-            var actualCommand = commandFactory.CreateCommand(CommandType.MoveRight);
+        { 
+            // arrange
+            var commandType = CommandType.MoveRight;
+
+            // act
+            var actualCommand = commandFactory.CreateCommand(commandType);
+
+            // assert
             Assert.IsInstanceOf<MoveRightCommand>(actualCommand);
         }
 
         [Test]
         public void WhenRequiredMoveForward_ShouldReturnMoveForwardCommand()
-        {
-            var actualCommand = commandFactory.CreateCommand(CommandType.MoveForward);
+        { 
+            // arrange
+            var commandType = CommandType.MoveForward;
+
+            // act
+            var actualCommand = commandFactory.CreateCommand(commandType);
+
+            // assert
             Assert.IsInstanceOf<MoveForwardCommand>(actualCommand);
         }
 
         [Test]
         public void WhenRequiredMoveBackward_ShouldReturnMoveBackwardCommand()
-        {
-            var actualCommand = commandFactory.CreateCommand(CommandType.MoveBackward);
+        { 
+            // arrange
+            var commandType = CommandType.MoveBackward;
+
+            // act
+            var actualCommand = commandFactory.CreateCommand(commandType);
+
+            // assert
             Assert.IsInstanceOf<MoveBackwardCommand>(actualCommand);
         }
 
         [Test]
         public void WhenRequiredStart_ShouldReturnStartCommand()
-        {
-            var actualCommand = commandFactory.CreateCommand(CommandType.Start);
+        { 
+            // arrange
+            var commandType = CommandType.Start;
+
+            // act
+            var actualCommand = commandFactory.CreateCommand(commandType);
+
+            // assert
             Assert.IsInstanceOf<StartCommand>(actualCommand);
         }
 
         [Test]
         public void WhenRequiredStop_ShouldReturnStopCommand()
-        {
-            var actualCommand = commandFactory.CreateCommand(CommandType.Stop);
+        { 
+            // arrange
+            var commandType = CommandType.Stop;
+
+            // act
+            var actualCommand = commandFactory.CreateCommand(commandType);
+
+            // assert
             Assert.IsInstanceOf<StopCommand>(actualCommand);
         }
 
         [Test]
         public void WhenRequiredHover_ShouldReturnHoverCommand()
         {
-            var actualCommand = commandFactory.CreateCommand(CommandType.Hover);
+            // arrange
+            var commandType = CommandType.Hover;
+
+            // act
+            var actualCommand = commandFactory.CreateCommand(commandType);
+
+            // assert
             Assert.IsInstanceOf<HoverCommand>(actualCommand);
         }
 
         [Test]
         public void WhenRequiredConfigureCommand_ShouldReturnConfigureCommand()
-        {
-            var actualCommand = commandFactory.CreateCommand(CommandType.Configure);
+        { 
+            // arrange
+            var commandType = CommandType.Configure;
+
+            // act
+            var actualCommand = commandFactory.CreateCommand(commandType);
+
+            // assert
             Assert.IsInstanceOf<ConfigureCommand>(actualCommand);
         }
 
         [Test]
         [ExpectedException(ExpectedException=typeof(ArgumentException))]
         public void WhenInvalidCommandType_ShouldThrowArgumentException()
-        {
-            var actualCommand = commandFactory.CreateCommand(CommandType.Undefined);
+        { 
+            // arrange
+            var commandType = CommandType.Undefined;
+
+            // act
+            var actualCommand = commandFactory.CreateCommand(commandType);
         }
     }
 }
