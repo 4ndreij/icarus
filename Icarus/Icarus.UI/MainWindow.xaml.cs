@@ -17,6 +17,7 @@ namespace Icarus.UI
     public partial class MainWindow : Window
     {
         readonly WindowMessages messages;
+        IInputProviderAdapter inputProviderAdapter;
 
         public MainWindow()
         {
@@ -24,6 +25,7 @@ namespace Icarus.UI
             ToggleButtonsState(false); 
             ConfigureDrone();
             messages = new WindowMessages();
+            inputProviderAdapter = App.Container.GetInstance<IInputProviderAdapter>();
         }
 
         ICommandFactory CommandFactory
