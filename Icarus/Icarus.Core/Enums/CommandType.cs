@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Icarus.Core.Enums
+﻿namespace Icarus.Core.Enums
 {
     public enum CommandType
     {
@@ -17,6 +11,7 @@ namespace Icarus.Core.Enums
         MoveForward,
         MoveBackward,
         MoveLeft,
-        MoveRight
+        MoveRight,
+        Hover
     }
 }

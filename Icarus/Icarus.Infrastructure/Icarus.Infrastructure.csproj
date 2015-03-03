@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="CommandFactory\CommandFactory.cs" />
     <Compile Include="Communication\CommandInvoker.cs" />
+    <Compile Include="InputProviders\InputProviderAdapter.cs" />
     <Compile Include="InputProviders\KeyboardInputProvider.cs" />
     <Compile Include="InputProviders\KinectInputProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

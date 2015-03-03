@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Icarus.Infrastructure.InputProviders;
 using StructureMap;
 using Icarus.Core.Interfaces;
 using log4net;
@@ -23,6 +19,8 @@ namespace Icarus.UI
                 x.For<IDroneClient>().Use<WifiClient>();
                 x.For<ICommandFactory>().Use<CommandFactory>();
                 x.For<ICommunicator>().Use<CommandInvoker>();
+                x.For<IInputProvider>().Use<KeyboardInputProvider>();
+                x.For<IInputProviderAdapter>().Use<IInputProviderAdapter>();
             });
             return container;
         }

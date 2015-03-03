@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\ConfigureCommand.cs" />
+    <Compile Include="Commands\HoverCommand.cs" />
     <Compile Include="Interfaces\ICommandFactory.cs" />
     <Compile Include="Commands\MoveBackward.cs" />
     <Compile Include="Commands\MoveBackwardCommand.cs" />
@@ -52,10 +53,10 @@
     <Compile Include="DroneClients\WifiClient.cs" />
     <Compile Include="DroneConfiguration\DroneConfiguration.cs" />
     <Compile Include="Enums\CommandType.cs" />
-    <Compile Include="InputProviderAdapter\InputProviderAdapter.cs" />
     <Compile Include="Interfaces\ICommunicator.cs" />
     <Compile Include="Interfaces\IDroneClient.cs" />
     <Compile Include="Interfaces\IInputProvider.cs" />
+    <Compile Include="Interfaces\IInputProviderAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

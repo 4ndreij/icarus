@@ -1,15 +1,12 @@
 ﻿using Icarus.Core.Enums;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Icarus.UI
 {
     public class WindowMessages
     {
-        IDictionary<CommandType, string> messages;
+        readonly IDictionary<CommandType, string> messages;
 
         public WindowMessages()
         {
