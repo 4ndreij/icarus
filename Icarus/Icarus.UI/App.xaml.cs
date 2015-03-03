@@ -12,12 +12,13 @@ namespace Icarus.UI
     /// </summary>
     public partial class App : Application
     {
-        IContainer container;
+        public static IContainer Container;
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             var bootstrapper = new Bootstrapper();
-            container = bootstrapper.Bootstrap();
+            Container = bootstrapper.Bootstrap();
+        
             Logger.Info("Application Started");
         }
 
@@ -30,7 +31,7 @@ namespace Icarus.UI
         {
             get
             {
-                return container.GetInstance<ILog>();
+                return Container.GetInstance<ILog>();
             }
         }
     }

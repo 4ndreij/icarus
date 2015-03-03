@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using StructureMap;
 using Icarus.Core.Interfaces;
 using log4net;
+using Icarus.Infrastructure.CommandFactory;
+using Icarus.Core.DroneClients;
+using Icarus.Infrastructure.Communication;
 
 namespace Icarus.UI
 {
@@ -17,7 +20,9 @@ namespace Icarus.UI
             var container = new Container(x =>
             {
                 x.For<ILog>().Use(logger);
- 
+                x.For<IDroneClient>().Use<WifiClient>();
+                x.For<ICommandFactory>().Use<CommandFactory>();
+                x.For<ICommunicator>().Use<CommandInvoker>();
             });
             return container;
         }

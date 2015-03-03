@@ -39,7 +39,7 @@
   <ItemGroup>
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\ConfigureCommand.cs" />
-    <Compile Include="Commands\ICommandFactory.cs" />
+    <Compile Include="Interfaces\ICommandFactory.cs" />
     <Compile Include="Commands\MoveBackward.cs" />
     <Compile Include="Commands\MoveBackwardCommand.cs" />
     <Compile Include="Commands\MoveDownCommand.cs" />
