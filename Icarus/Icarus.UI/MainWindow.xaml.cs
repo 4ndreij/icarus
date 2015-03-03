@@ -18,11 +18,14 @@ namespace Icarus.UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        WindowMessages messages;
+
         public MainWindow()
         {
             InitializeComponent();
             ToggleButtonsState(false); 
             ConfigureDrone();
+            messages = new WindowMessages();
         }
 
         ICommandFactory CommandFactory
@@ -99,48 +102,6 @@ namespace Icarus.UI
             imgConnectionStatus.Source = bmp;
         }
 
-        private void btnUp_Click(object sender, RoutedEventArgs e)
-        {
-            AddCommandToList(Constants.UpCommandMessage);
-            var upCommand = CommandFactory.CreateCommand(CommandType.MoveUp);
-            Communicator.ExecuteCommand(upCommand);
-        }
-
-        private void btnDown_Click(object sender, RoutedEventArgs e)
-        {
-            AddCommandToList(Constants.DownCommandMessage);
-            var downCommand = CommandFactory.CreateCommand(CommandType.MoveDown);
-            Communicator.ExecuteCommand(downCommand);
-        }
-
-        private void btnLeft_Click(object sender, RoutedEventArgs e)
-        {
-            AddCommandToList(Constants.LeftCommandMessage);
-            var leftCommand = CommandFactory.CreateCommand(CommandType.MoveLeft);
-            Communicator.ExecuteCommand(leftCommand);
-        }
-
-        private void btnRight_Click(object sender, RoutedEventArgs e)
-        {
-            AddCommandToList(Constants.RightCommandMessage);
-            var rightCommand = CommandFactory.CreateCommand(CommandType.MoveRight);
-            Communicator.ExecuteCommand(rightCommand);
-        }
-
-        private void btnForward_Click(object sender, RoutedEventArgs e)
-        {
-            AddCommandToList(Constants.FwdCommandMessage);
-            var fwdCommand = CommandFactory.CreateCommand(CommandType.MoveForward);
-            Communicator.ExecuteCommand(fwdCommand);
-        }
-
-        private void btnBackward_Click(object sender, RoutedEventArgs e)
-        {
-            AddCommandToList(Constants.BwdCommandMessage);
-            var backCommand = CommandFactory.CreateCommand(CommandType.MoveBackward);
-            Communicator.ExecuteCommand(backCommand);
-        }
-
         void AddCommandToList(string commandMessage)
         {
             lstMessageWindow.Items.Add(commandMessage + " - " + DateTime.Now.ToString());
@@ -149,14 +110,13 @@ namespace Icarus.UI
         }
 
         private void btnSendCommand_Click(object sender, RoutedEventArgs e)
-        {
-            // TODO: we might consider this unique button handler approach, instead of one handler for each button defined above
-
-            //AddCommandToList(Constants.BwdCommandMessage); TODO: turn this into a dictionary of messages for each command type
-
+        {         
             var button = (Button)sender;
             CommandType commandType;
             Enum.TryParse(button.Tag.ToString(), out commandType);
+
+            AddCommandToList(messages.GetMessage(commandType));
+
             var command = CommandFactory.CreateCommand(commandType);
             Communicator.ExecuteCommand(command);
         }
