@@ -41,7 +41,6 @@
     <Compile Include="Commands\ConfigureCommand.cs" />
     <Compile Include="Commands\HoverCommand.cs" />
     <Compile Include="Interfaces\ICommandFactory.cs" />
-    <Compile Include="Commands\MoveBackward.cs" />
     <Compile Include="Commands\MoveBackwardCommand.cs" />
     <Compile Include="Commands\MoveDownCommand.cs" />
     <Compile Include="Commands\MoveForwardCommand.cs" />

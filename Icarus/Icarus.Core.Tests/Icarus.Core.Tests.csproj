@@ -57,7 +57,24 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandTests\BaseCommandTests.cs" />
+    <Compile Include="CommandTests\ConfigureCommandTests.cs" />
+    <Compile Include="CommandTests\HoverCommandTests.cs" />
+    <Compile Include="CommandTests\MoveBackwardCommandTests.cs" />
+    <Compile Include="CommandTests\MoveDownCommandTests.cs" />
+    <Compile Include="CommandTests\MoveForwardCommandTests.cs" />
+    <Compile Include="CommandTests\MoveLeftCommandTests.cs" />
+    <Compile Include="CommandTests\MoveRightCommandTests.cs" />
+    <Compile Include="CommandTests\MoveUpCommandTests.cs" />
+    <Compile Include="CommandTests\StartCommandTests.cs" />
+    <Compile Include="CommandTests\StopCommandTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Icarus.Core\Icarus.Core.csproj">
+      <Project>{2ED26CAF-E8D2-470E-AF94-4D90C945B0A5}</Project>
+      <Name>Icarus.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
