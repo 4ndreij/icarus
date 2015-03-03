@@ -17,5 +17,12 @@ namespace Icarus.UI
         public const string RightCommandMessage = "Go Right";
         public const string FwdCommandMessage = "Go Forward";
         public const string BwdCommandMessage = "Go Backward";
+
+
+        public const int NavigationDataPort = 5554;
+        public const int VideoStreamPort = 5555;
+        public const int MovementControlPort = 5556;
+        public const int ConfigurationControlPort = 5559;
+
     }
 }
