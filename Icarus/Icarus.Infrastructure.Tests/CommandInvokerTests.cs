@@ -18,7 +18,7 @@ namespace Icarus.Infrastructure.Tests
         CommandInvoker commandInvoker;
         Mock<Command> commandMock;
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void Setup()
         {
             commandInvoker = new CommandInvoker();
