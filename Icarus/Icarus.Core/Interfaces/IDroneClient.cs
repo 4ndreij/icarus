@@ -19,5 +19,7 @@
         void MoveLeft();
 
         void MoveRight();
+
+        void Hover();
     }
 }

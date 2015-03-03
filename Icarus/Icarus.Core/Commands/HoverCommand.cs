@@ -2,18 +2,18 @@
 
 namespace Icarus.Core.Commands
 {
-    public class MoveBackwardCommand : Command
+    public class HoverCommand : Command
     {
-        readonly IDroneClient droneClient;
+        private readonly IDroneClient droneClient;
 
-        public MoveBackwardCommand(IDroneClient droneClient)
+        public HoverCommand(IDroneClient droneClient)
         {
             this.droneClient = droneClient;
         }
 
         public override void Execute()
         {
-            droneClient.MoveBackward();
+            droneClient.Hover();
         }
     }
 }

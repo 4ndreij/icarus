@@ -1,23 +1,19 @@
-﻿using Icarus.Core.Commands;
+﻿using System;
+using Icarus.Core.Commands;
 using Icarus.Core.Enums;
 using Icarus.Core.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Icarus.Infrastructure.CommandFactory
 {
     public class CommandFactory : ICommandFactory
     {
-        IDroneClient droneClient;
+        private readonly IDroneClient droneClient;
 
         public CommandFactory(IDroneClient droneClient)
         {
             this.droneClient = droneClient;
         }
-        
+
         public Command CreateCommand(CommandType commandType)
         {
             Command command = null;
@@ -50,7 +46,10 @@ namespace Icarus.Infrastructure.CommandFactory
                 case CommandType.MoveUp:
                     command = new MoveUpCommand(droneClient);
                     break;
-                default: 
+                case CommandType.Hover:
+                    command = new HoverCommand(droneClient);
+                    break;
+                default:
                     throw new ArgumentException("Invalid command type");
             }
             return command;

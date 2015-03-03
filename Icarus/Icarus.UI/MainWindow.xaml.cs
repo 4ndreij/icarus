@@ -3,12 +3,10 @@ using Icarus.Core.DroneConfiguration;
 using Icarus.Core.Enums;
 using Icarus.Core.Interfaces;
 using System;
-using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Icarus.UI
@@ -18,7 +16,7 @@ namespace Icarus.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        WindowMessages messages;
+        readonly WindowMessages messages;
 
         public MainWindow()
         {
