@@ -5,6 +5,7 @@ using log4net;
 using Icarus.Infrastructure.CommandFactory;
 using Icarus.Core.DroneClients;
 using Icarus.Infrastructure.Communication;
+using Icarus.Infrastructure.KeyboardInputProvider;
 
 namespace Icarus.UI
 {
@@ -20,7 +21,7 @@ namespace Icarus.UI
                 x.For<ICommandFactory>().Use<CommandFactory>();
                 x.For<ICommunicator>().Use<CommandInvoker>();
                 x.For<IInputProvider>().Use<KeyboardInputProvider>();
-                x.For<IInputProviderAdapter>().Use<IInputProviderAdapter>();
+                x.For<IInputProviderAdapter>().Use<InputProviderAdapter>();
             });
             return container;
         }

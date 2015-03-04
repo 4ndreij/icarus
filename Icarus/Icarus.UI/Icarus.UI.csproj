@@ -117,6 +117,10 @@
       <Project>{2ed26caf-e8d2-470e-af94-4d90c945b0a5}</Project>
       <Name>Icarus.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Icarus.Infrastructure.KeyboardInputProvider\Icarus.Infrastructure.KeyboardInputProvider.csproj">
+      <Project>{a7f82657-e1d5-42f4-bcf6-915b898029c5}</Project>
+      <Name>Icarus.Infrastructure.KeyboardInputProvider</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Icarus.Infrastructure\Icarus.Infrastructure.csproj">
       <Project>{459f7d9f-78c3-4f25-807f-9bc74234cfaf}</Project>
       <Name>Icarus.Infrastructure</Name>

@@ -1,5 +1,7 @@
 ﻿using System;
+using Icarus.Core.Commands;
 using Icarus.Core.Enums;
+using Icarus.Core.EventArguments;
 using Icarus.Core.Interfaces;
 
 namespace Icarus.Infrastructure.InputProviders
@@ -17,6 +19,8 @@ namespace Icarus.Infrastructure.InputProviders
             this.communicator = communicator;
             SubscribeToInputProviderEvents();
         }
+
+        public event EventHandler<ProcessedCommandArgs> OnCommandProcessed;
 
         private void SubscribeToInputProviderEvents()
         {
@@ -40,56 +44,93 @@ namespace Icarus.Infrastructure.InputProviders
 
         private void inputProvider_OnHover(object sender, EventArgs e)
         {
-            var command = commandFactory.CreateCommand(CommandType.Hover);
+            Command command = commandFactory.CreateCommand(CommandType.Hover);
             communicator.ExecuteCommand(command);
+            if (OnCommandProcessed != null)
+            {
+                OnCommandProcessed(this, new ProcessedCommandArgs{CommandType = CommandType.Hover});
+            }
         }
 
         private void inputProvider_OnMoveUp(object sender, EventArgs e)
         {
-            var command = commandFactory.CreateCommand(CommandType.MoveUp);
+            Command command = commandFactory.CreateCommand(CommandType.MoveUp);
             communicator.ExecuteCommand(command);
+            if (OnCommandProcessed != null)
+            {
+                OnCommandProcessed(this, new ProcessedCommandArgs { CommandType = CommandType.MoveUp });
+            }
         }
 
         private void inputProvider_OnMoveRight(object sender, EventArgs e)
         {
-            var command = commandFactory.CreateCommand(CommandType.MoveRight);
+            Command command = commandFactory.CreateCommand(CommandType.MoveRight);
             communicator.ExecuteCommand(command);
+            if (OnCommandProcessed != null)
+            {
+                OnCommandProcessed(this, new ProcessedCommandArgs { CommandType = CommandType.MoveRight });
+            }
         }
 
         private void inputProvider_OnMoveLeft(object sender, EventArgs e)
         {
-            var command = commandFactory.CreateCommand(CommandType.MoveLeft);
+            Command command = commandFactory.CreateCommand(CommandType.MoveLeft);
             communicator.ExecuteCommand(command);
+            if (OnCommandProcessed != null)
+            {
+                OnCommandProcessed(this, new ProcessedCommandArgs { CommandType = CommandType.MoveLeft });
+            }
         }
 
         private void inputProvider_OnMoveForward(object sender, EventArgs e)
         {
-            var command = commandFactory.CreateCommand(CommandType.MoveForward);
+            Command command = commandFactory.CreateCommand(CommandType.MoveForward);
             communicator.ExecuteCommand(command);
+            if (OnCommandProcessed != null)
+            {
+                OnCommandProcessed(this, new ProcessedCommandArgs { CommandType = CommandType.MoveForward });
+            }
         }
 
         private void inputProvider_OnMoveDown(object sender, EventArgs e)
         {
-            var command = commandFactory.CreateCommand(CommandType.MoveDown);
+            Command command = commandFactory.CreateCommand(CommandType.MoveDown);
             communicator.ExecuteCommand(command);
+            if (OnCommandProcessed != null)
+            {
+                OnCommandProcessed(this, new ProcessedCommandArgs { CommandType = CommandType.MoveDown });
+            }
         }
 
         private void inputProvider_OnMoveBackward(object sender, EventArgs e)
         {
-            var command = commandFactory.CreateCommand(CommandType.MoveBackward);
+            Command command = commandFactory.CreateCommand(CommandType.MoveBackward);
             communicator.ExecuteCommand(command);
+            if (OnCommandProcessed != null)
+            {
+                OnCommandProcessed(this, new ProcessedCommandArgs { CommandType = CommandType.MoveBackward });
+            }
         }
 
         private void inputProvider_OnStop(object sender, EventArgs e)
         {
-            var command = commandFactory.CreateCommand(CommandType.Stop);
+            Command command = commandFactory.CreateCommand(CommandType.Stop);
             communicator.ExecuteCommand(command);
+            if (OnCommandProcessed != null)
+            {
+                OnCommandProcessed(this, new ProcessedCommandArgs { CommandType = CommandType.Stop });
+            }
         }
 
         private void inputProvider_OnStart(object sender, EventArgs e)
         {
-            var command = commandFactory.CreateCommand(CommandType.Start);
+            Command command = commandFactory.CreateCommand(CommandType.Start);
             communicator.ExecuteCommand(command);
+
+            if (OnCommandProcessed != null)
+            {
+                OnCommandProcessed(this, new ProcessedCommandArgs { CommandType = CommandType.Start });
+            }
         }
     }
 }
