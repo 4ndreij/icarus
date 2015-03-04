@@ -70,7 +70,8 @@ namespace AR.Drone.Client.Configuration
 
         public Task<Settings> CreateTask(CancellationToken cancellationToken)
         {
-            return new Task<Settings>(() => GetConfiguration(cancellationToken), cancellationToken, TaskCreationOptions.LongRunning);
+            return new Task<Settings>(() => 
+                GetConfiguration(cancellationToken), cancellationToken, TaskCreationOptions.LongRunning);
         }
     }
 }

@@ -24,17 +24,18 @@ namespace Icarus.Core.Commands
         public override void Execute()
         {
             Task<Settings> configurationTask = droneClient.Configure();
-            configurationTask.ContinueWith(delegate(Task<Settings> task)
-            {
-                if (task.Exception != null)
+            configurationTask.ContinueWith(
+                delegate(Task<Settings> task)
                 {
-                    Trace.TraceWarning("Get configuration task is faulted with exception: {0}", 
-                        task.Exception.InnerException.Message);
-                    return;
-                }
+                    if (task.Exception != null)
+                    {
+                        Trace.TraceWarning("Get configuration task is faulted with exception: {0}",
+                            task.Exception.InnerException.Message);
+                        return;
+                    }
 
-                settings = task.Result;
-            });
+                    settings = task.Result;
+                });
             configurationTask.Start();
         }
     }
