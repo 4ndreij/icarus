@@ -28,7 +28,7 @@ namespace Icarus.Core.Tests.CommandTests
             configureCommand.Execute();
 
             // assert
-            DroneClientMock.Verify(x => x.Configure(droneConfiguration), Times.Once);
+            DroneClientMock.Verify(x => x.Configure(), Times.Once);
         }
     }
 }

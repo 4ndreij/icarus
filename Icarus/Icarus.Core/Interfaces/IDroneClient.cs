@@ -6,32 +6,12 @@ namespace Icarus.Core.Interfaces
 {
     public interface IDroneClient
     {
-        // TODO: keep only needed public commands
-        void Start();
-
-        void Stop();
-
-        void Configure(DroneConfiguration.DroneConfiguration droneConfiguration);
-
-        void MoveUp();
-
-        void MoveDown();
-
-        void MoveForward();
-
-        void MoveBackward();
-
-        void MoveLeft();
-
-        void MoveRight();
-        // see above TODO
-
         NetworkConfiguration NetworkConfiguration
         {
             get;
         }
 
-        Task<Settings> GetConfigurationTask();
+        Task<Settings> Configure();
 
         void Send(AtCommand command);
 
@@ -56,7 +36,5 @@ namespace Icarus.Core.Interfaces
 
         void ProgressWithMagneto(FlightMode mode, float roll = 0, float pitch = 0, 
             float yaw = 0, float gaz = 0, float psi = 0, float accuracy = 0);
-
-
     }
 }

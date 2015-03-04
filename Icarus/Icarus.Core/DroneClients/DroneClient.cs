@@ -197,7 +197,7 @@ namespace AR.Drone.Client
 
         #region Api
 
-        public Task<Settings> GetConfigurationTask()
+        public Task<Settings> Configure()
         {
             var configurationAcquisition = new ConfigurationAcquisition(this);
             var task = configurationAcquisition.CreateTask();
@@ -350,43 +350,6 @@ namespace AR.Drone.Client
 
             _navdataAcquisition.Dispose();
             _commandSender.Dispose();
-        }
-
-        // TODO: keep only needed public commands
-
-        public void Configure(Icarus.Core.DroneConfiguration.DroneConfiguration droneConfiguration)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void MoveUp()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void MoveDown()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void MoveForward()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void MoveBackward()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void MoveLeft()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void MoveRight()
-        {
-            throw new NotImplementedException();
         }
     }
 }

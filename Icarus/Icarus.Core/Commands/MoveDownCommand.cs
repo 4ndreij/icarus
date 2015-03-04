@@ -1,4 +1,5 @@
-﻿using Icarus.Core.Interfaces;
+﻿using AR.Drone.Client.Command;
+using Icarus.Core.Interfaces;
 
 namespace Icarus.Core.Commands
 {
@@ -13,7 +14,7 @@ namespace Icarus.Core.Commands
 
         public override void Execute()
         {
-            droneClient.MoveDown();
+            droneClient.Progress(FlightMode.Progressive, gaz: -0.25f);
         }
     }
 }
