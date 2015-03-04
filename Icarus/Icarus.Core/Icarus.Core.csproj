@@ -40,6 +40,7 @@
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\ConfigureCommand.cs" />
     <Compile Include="Commands\HoverCommand.cs" />
+    <Compile Include="EventArguments\ProcessedCommandArgs.cs" />
     <Compile Include="Interfaces\ICommandFactory.cs" />
     <Compile Include="Commands\MoveBackwardCommand.cs" />
     <Compile Include="Commands\MoveDownCommand.cs" />

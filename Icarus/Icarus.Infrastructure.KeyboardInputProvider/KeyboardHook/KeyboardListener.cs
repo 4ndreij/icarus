@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
-using System.Windows.Input;
-using System.Collections.Generic;
 
-namespace Icarus.Infrastructure.KeyboardInputProvider
+namespace Icarus.Infrastructure.KeyboardInputProvider.KeyboardHook
 {
     /// <summary>
     /// Listens keyboard globally.

@@ -21,7 +21,7 @@ namespace Icarus.UI
                 x.For<ICommandFactory>().Use<CommandFactory>();
                 x.For<ICommunicator>().Use<CommandInvoker>();
                 x.For<IInputProvider>().Use<KeyboardInputProvider>();
-                x.For<IInputProviderAdapter>().Use<InputProviderAdapter>().Singleton();
+                x.For<IInputProviderAdapter>().Use<InputProviderAdapter>();
             });
             return container;
         }

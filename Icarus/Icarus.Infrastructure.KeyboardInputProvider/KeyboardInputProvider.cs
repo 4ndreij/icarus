@@ -1,19 +1,25 @@
-﻿using Icarus.Core.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Input;
+using Icarus.Core.Interfaces;
+using Icarus.Infrastructure.KeyboardInputProvider.KeyboardHook;
 
 namespace Icarus.Infrastructure.KeyboardInputProvider
 {
     public class KeyboardInputProvider : IInputProvider, IDisposable
     {
-        private KeyboardListener keyListener;
+        private readonly KeyboardListener keyListener;
 
-        private IDictionary<Key, EventHandler> keyDownEvents;
-        private IDictionary<Key, EventHandler> keyUpEvents;
+        public KeyboardInputProvider()
+        {
+            keyListener = new KeyboardListener();
+            keyListener.KeyDown += keyListener_KeyDown;
+            keyListener.KeyUp += keyListener_KeyUp;
+        }
+
+        public void Dispose()
+        {
+            keyListener.Dispose();
+        }
 
         public event EventHandler OnStart;
 
@@ -47,62 +53,130 @@ namespace Icarus.Infrastructure.KeyboardInputProvider
 
         public event EventHandler OnHoverStopped;
 
-        public KeyboardInputProvider()
+        private void keyListener_KeyUp(object sender, RawKeyEventArgs args)
         {
-            CreateKeyDownEventMapping();
-            CreateKeyUpEventMapping();
-            keyListener = new KeyboardListener();
-            keyListener.KeyDown += keyListener_KeyDown;
-            keyListener.KeyUp += keyListener_KeyUp;
+            HandleKeyUpevents(sender, args);
         }
 
-        private void CreateKeyUpEventMapping()
+        protected virtual void HandleKeyUpevents(object sender, RawKeyEventArgs args)
         {
-            keyUpEvents = new Dictionary<Key, EventHandler>();
-            keyUpEvents.Add(Key.S, OnHover);
-            keyUpEvents.Add(Key.T, OnStop);
-            keyUpEvents.Add(Key.Left, OnMoveLeftStopped);
-            keyUpEvents.Add(Key.Right, OnMoveRightStopped);
-            keyUpEvents.Add(Key.Up, OnMoveForwardStopped);
-            keyUpEvents.Add(Key.Down, OnMoveBackwardStopped);
-            keyUpEvents.Add(Key.PageDown, OnMoveDownStopped);
-            keyUpEvents.Add(Key.PageUp, OnMoveUpStopped);
-            keyUpEvents.Add(Key.H, OnHoverStopped);
-        }
-
-        private void CreateKeyDownEventMapping()
-        {
-            keyDownEvents = new Dictionary<Key, EventHandler>();
-            keyDownEvents.Add(Key.S, OnStart);
-            keyDownEvents.Add(Key.T, null);
-            keyDownEvents.Add(Key.Left, OnMoveLeft);
-            keyDownEvents.Add(Key.Right, OnMoveRight);
-            keyDownEvents.Add(Key.Up, OnMoveForward);
-            keyDownEvents.Add(Key.Down, OnMoveBackward);
-            keyDownEvents.Add(Key.PageDown, OnMoveDown);
-            keyDownEvents.Add(Key.PageUp, OnMoveUp);
-            keyDownEvents.Add(Key.H, OnHover);
-        }
-
-        void keyListener_KeyUp(object sender, RawKeyEventArgs args)
-        {
-            if (!args.IsSysKey && keyUpEvents.ContainsKey((Key)args.VKCode) && keyUpEvents[(Key)args.VKCode] != null)
+            switch (args.Key)
             {
-                keyUpEvents[(Key)args.VKCode](sender, args);
+                case Key.S:
+                    // do nothing
+                    break;
+                case Key.T:
+                    // do nothing
+                    break;
+                case Key.Left:
+                    if (OnMoveLeftStopped != null)
+                    {
+                        OnMoveLeftStopped(sender, args);
+                    }
+                    break;
+                case Key.Right:
+                    if (OnMoveRightStopped != null)
+                    {
+                        OnMoveRightStopped(sender, args);
+                    }
+                    break;
+                case Key.Up:
+                    if (OnMoveForwardStopped != null)
+                    {
+                        OnMoveForwardStopped(sender, args);
+                    }
+                    break;
+                case Key.Down:
+                    if (OnMoveBackwardStopped != null)
+                    {
+                        OnMoveBackwardStopped(sender, args);
+                    }
+                    break;
+                case Key.PageUp:
+                    if (OnMoveUpStopped != null)
+                    {
+                        OnMoveUpStopped(sender, args);
+                    }
+                    break;
+                case Key.PageDown:
+                    if (OnMoveDownStopped != null)
+                    {
+                        OnMoveDownStopped(sender, args);
+                    }
+                    break;
+                case Key.H:
+                    if (OnHoverStopped != null)
+                    {
+                        OnHoverStopped(sender, args);
+                    }
+                    break;
             }
         }
 
-        void keyListener_KeyDown(object sender, RawKeyEventArgs args)
+        private void keyListener_KeyDown(object sender, RawKeyEventArgs args)
         {
-            if (!args.IsSysKey && keyDownEvents.ContainsKey((Key)args.VKCode) && keyDownEvents[(Key)args.VKCode] != null)
-            {
-                keyDownEvents[(Key)args.VKCode](sender, args);
-            }
+            HandleKeyDownEvents(sender, args);
         }
 
-        public void Dispose()
+        protected virtual void HandleKeyDownEvents(object sender, RawKeyEventArgs args)
         {
-            keyListener.Dispose();
+            switch (args.Key)
+            {
+                case Key.S:
+                    if (OnStart != null)
+                    {
+                        OnStart(sender, args);
+                    }
+                    break;
+                case Key.T:
+                    if (OnStop != null)
+                    {
+                        OnStop(sender, args);
+                    }
+                    break;
+                case Key.Left:
+                    if (OnMoveLeft != null)
+                    {
+                        OnMoveLeft(sender, args);
+                    }
+                    break;
+                case Key.Right:
+                    if (OnMoveRight != null)
+                    {
+                        OnMoveRight(sender, args);
+                    }
+                    break;
+                case Key.Up:
+                    if (OnMoveForward != null)
+                    {
+                        OnMoveForward(sender, args);
+                    }
+                    break;
+                case Key.Down:
+                    if (OnMoveBackward != null)
+                    {
+                        OnMoveBackward(sender, args);
+                    }
+                    break;
+                case Key.PageUp:
+                    if (OnMoveUp != null)
+                    {
+                        OnMoveUp(sender, args);
+                    }
+                    break;
+                case Key.PageDown:
+                    if (OnMoveDown != null)
+                    {
+                        OnMoveDown(sender, args);
+                    }
+                    break;
+                case Key.H:
+                    if (OnHover != null)
+                    {
+                        OnHover(sender, args);
+                    }
+                    break;
+            }
         }
 
         ~KeyboardInputProvider()
@@ -111,4 +185,3 @@ namespace Icarus.Infrastructure.KeyboardInputProvider
         }
     }
 }
-

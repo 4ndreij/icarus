@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
 
-namespace Icarus.Infrastructure.KeyboardInputProvider
+namespace Icarus.Infrastructure.KeyboardInputProvider.KeyboardHook
 {
     public class RawKeyEventArgs : EventArgs
     {
@@ -16,7 +13,7 @@ namespace Icarus.Infrastructure.KeyboardInputProvider
         /// <summary>
         /// WPF Key of the key.
         /// </summary>
-        //public Key Key;
+        public Key Key;
 
         /// <summary>
         /// Is the hitted key system key.
@@ -40,15 +37,15 @@ namespace Icarus.Infrastructure.KeyboardInputProvider
         /// <summary>
         /// Create raw keyevent arguments.
         /// </summary>
-        /// <param name="VKCode"></param>
+        /// <param name="vkCode"></param>
         /// <param name="isSysKey"></param>
-        /// <param name="Character">Character</param>
-        public RawKeyEventArgs(int VKCode, bool isSysKey, string Character)
+        /// <param name="character">Character</param>
+        public RawKeyEventArgs(int vkCode, bool isSysKey, string character)
         {
-            this.VKCode = VKCode;
-            this.IsSysKey = isSysKey;
-            this.Character = Character;
-            //this.Key = System.Windows.Input.KeyInterop.KeyFromVirtualKey(VKCode);
+            VKCode = vkCode;
+            IsSysKey = isSysKey;
+            Character = character;
+            Key = KeyInterop.KeyFromVirtualKey(VKCode);
         }
     }
 }

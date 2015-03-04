@@ -1,6 +1,6 @@
-﻿namespace Icarus.Infrastructure.KeyboardInputProvider
+﻿namespace Icarus.Infrastructure.KeyboardInputProvider.KeyboardHook
 {
-    public enum KeyEvent : int
+    public enum KeyEvent
     {
         /// <summary>
         /// Key down
