@@ -1,0 +1,8 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+  <Config name="Debug" binpathtype="Auto">
+    <assembly path="Icarus.Core.Tests\bin\Debug\Icarus.Core.Tests.dll" />
+    <assembly path="Icarus.Infrastructure.Tests\bin\Debug\Icarus.Infrastructure.Tests.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto" />
+</NUnitProject>
