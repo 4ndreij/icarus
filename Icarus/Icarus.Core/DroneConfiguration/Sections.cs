@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 
 namespace AR.Drone.Client.Configuration
 {
@@ -466,7 +467,13 @@ namespace AR.Drone.Client.Configuration
             get { return GetInt32("bitrate_storage"); }
             set { Set("bitrate_storage", value); }
         }
-        
+
+        public Boolean OnUsb
+        {
+            get { return GetBoolean("video_on_usb"); }
+            set { Set("video_on_usb", value); }
+        }
+
         public Int32 FileIndex
         {
             get { return GetInt32("video_file_index"); }
@@ -638,4 +645,5 @@ namespace AR.Drone.Client.Configuration
             set { Set("session_desc", value); }
         }
     }
+
 }

@@ -55,22 +55,22 @@
     <Compile Include="Command\ProgressWithMagnetoCommand.cs" />
     <Compile Include="Command\RefCommand.cs" />
     <Compile Include="Command\RefMode.cs" />
-    <Compile Include="Configuration\ConfigurationAcquisition.cs" />
-    <Compile Include="Configuration\FlightAnimation.cs" />
-    <Compile Include="Configuration\FlightAnimationType.cs" />
-    <Compile Include="Configuration\LedAnimation.cs" />
-    <Compile Include="Configuration\LedAnimationType.cs" />
-    <Compile Include="Configuration\NavdataOptions.cs" />
-    <Compile Include="Configuration\NetworkConfiguration.cs" />
-    <Compile Include="Configuration\SectionBase.cs" />
-    <Compile Include="Configuration\Sections.cs">
+    <Compile Include="DroneConfiguration\ConfigurationAcquisition.cs" />
+    <Compile Include="DroneConfiguration\FlightAnimation.cs" />
+    <Compile Include="DroneConfiguration\FlightAnimationType.cs" />
+    <Compile Include="DroneConfiguration\LedAnimation.cs" />
+    <Compile Include="DroneConfiguration\LedAnimationType.cs" />
+    <Compile Include="DroneConfiguration\NavdataOptions.cs" />
+    <Compile Include="DroneConfiguration\NetworkConfiguration.cs" />
+    <Compile Include="DroneConfiguration\SectionBase.cs" />
+    <Compile Include="DroneConfiguration\Sections.cs">
       <DependentUpon>Sections.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Configuration\Settings.cs" />
-    <Compile Include="Configuration\UserboxCommand.cs" />
-    <Compile Include="Configuration\UserboxCommandType.cs" />
+    <Compile Include="DroneConfiguration\Settings.cs" />
+    <Compile Include="DroneConfiguration\UserboxCommand.cs" />
+    <Compile Include="DroneConfiguration\UserboxCommandType.cs" />
     <Compile Include="DroneClients\DroneClient.cs" />
     <Compile Include="Enums\StateRequest.cs" />
     <Compile Include="EventArguments\ProcessedCommandArgs.cs" />
@@ -106,12 +106,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Configuration\Sections.tt">
+    <None Include="DroneConfiguration\Sections.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Sections.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
