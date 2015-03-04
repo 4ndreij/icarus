@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AR.Drone.Client.Command;
 using AR.Drone.Data.Navigation;
+using Icarus.Core.Interfaces;
 
 namespace AR.Drone.Client.Configuration
 {
@@ -14,21 +15,21 @@ namespace AR.Drone.Client.Configuration
         private const int NetworkBufferSize = 0x10000;
         private const int ConfigTimeout = 1000;
 
-        private readonly DroneClient _client;
+        private readonly IDroneClient client;
 
-        public ConfigurationAcquisition(DroneClient client)
+        public ConfigurationAcquisition(IDroneClient client)
         {
-            _client = client;
+            this.client = client;
         }
 
         public Settings GetConfiguration(CancellationToken token)
         {
-            using (var tcpClient = new TcpClient(_client.NetworkConfiguration.DroneHostname, ControlPort))
+            using (var tcpClient = new TcpClient(client.NetworkConfiguration.DroneHostname, ControlPort))
             using (NetworkStream stream = tcpClient.GetStream())
             {
-                _client.AckControlAndWaitForConfirmation();
+                client.AckControlAndWaitForConfirmation();
 
-                _client.Send(ControlCommand.CfgGetControlMode);
+                client.Send(ControlCommand.CfgGetControlMode);
 
                 var buffer = new byte[NetworkBufferSize];
                 Stopwatch swConfigTimeout = Stopwatch.StartNew();

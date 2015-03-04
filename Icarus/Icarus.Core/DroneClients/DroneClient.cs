@@ -10,10 +10,11 @@ using AR.Drone.Data;
 using AR.Drone.Data.Navigation;
 using AR.Drone.Infrastructure;
 using AR.Drone.Client.Configuration;
+using Icarus.Core.Interfaces;
 
 namespace AR.Drone.Client
 {
-    public class DroneClient : WorkerBase
+    public class DroneClient : WorkerBase, IDroneClient
     {
         private const string DefaultHostname = "192.168.1.1";
         private const int AckControlAndWaitForConfirmationTimeout = 1000;
@@ -349,6 +350,43 @@ namespace AR.Drone.Client
 
             _navdataAcquisition.Dispose();
             _commandSender.Dispose();
+        }
+
+        // TODO: keep only needed public commands
+
+        public void Configure(Icarus.Core.DroneConfiguration.DroneConfiguration droneConfiguration)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoveUp()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoveDown()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoveForward()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoveBackward()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoveLeft()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoveRight()
+        {
+            throw new NotImplementedException();
         }
     }
 }
