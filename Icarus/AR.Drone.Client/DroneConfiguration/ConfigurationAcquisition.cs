@@ -5,7 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using AR.Drone.Client.Command;
 using AR.Drone.Data.Navigation;
-using Icarus.Core.Interfaces;
 
 namespace AR.Drone.Client.Configuration
 {
@@ -15,9 +14,9 @@ namespace AR.Drone.Client.Configuration
         private const int NetworkBufferSize = 0x10000;
         private const int ConfigTimeout = 1000;
 
-        private readonly IDroneClient client;
+        private readonly DroneClient client;
 
-        public ConfigurationAcquisition(IDroneClient client)
+        public ConfigurationAcquisition(DroneClient client)
         {
             this.client = client;
         }

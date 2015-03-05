@@ -1,40 +1,28 @@
-﻿using AR.Drone.Client;
-using AR.Drone.Client.Command;
-using AR.Drone.Client.Configuration;
+﻿
 using System.Threading.Tasks;
+
 namespace Icarus.Core.Interfaces
 {
     public interface IDroneClient
     {
-        NetworkConfiguration NetworkConfiguration
-        {
-            get;
-        }
+        void Configure(DroneConfiguration.DroneConfiguration droneConfiguration);
 
-        Task<Settings> Configure();
+        void Start();
 
-        void Send(AtCommand command);
+        void Stop();
 
-        void Send(Settings settings);
+        void MoveLeft();
 
-        bool AckControlAndWaitForConfirmation();
+        void MoveRight();
 
-        void Emergency();
+        void MoveUp();
 
-        void ResetEmergency();
+        void MoveDown();
 
-        void Land();
+        void MoveForward();
 
-        void Takeoff();
-
-        void FlatTrim();
+        void MoveBackward();
 
         void Hover();
-
-        void Progress(FlightMode mode, float roll = 0,
-            float pitch = 0, float yaw = 0, float gaz = 0);
-
-        void ProgressWithMagneto(FlightMode mode, float roll = 0, float pitch = 0, 
-            float yaw = 0, float gaz = 0, float psi = 0, float accuracy = 0);
     }
 }

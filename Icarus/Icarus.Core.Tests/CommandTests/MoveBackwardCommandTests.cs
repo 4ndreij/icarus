@@ -1,5 +1,4 @@
-﻿using AR.Drone.Client.Command;
-using Icarus.Core.Commands;
+﻿using Icarus.Core.Commands;
 using Moq;
 using NUnit.Framework;
 
@@ -26,15 +25,7 @@ namespace Icarus.Core.Tests.CommandTests
             moveBackwardCommand.Execute();
 
             // assert
-            DroneClientMock.Verify(
-                x => x
-                .Progress(
-                FlightMode.Progressive,
-                 0,
-                 0.05f,
-                 0,
-                 0), 
-                 Times.Once);
+            DroneClientMock.Verify(x => x.MoveBackward(), Times.Once);
         }
     }
 }

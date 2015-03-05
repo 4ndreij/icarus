@@ -1,5 +1,4 @@
-﻿using AR.Drone.Client.Command;
-using Icarus.Core.Commands;
+﻿using Icarus.Core.Commands;
 using Moq;
 using NUnit.Framework;
 
@@ -17,7 +16,7 @@ namespace Icarus.Core.Tests.CommandTests
         }
 
         [Test]
-        public void MoveForwardCommand_ShouldExecuteClientMoveForward()
+        public void HoverCommand_ShouldExecuteClientMoveForward()
         {
             // arrange
             moveForwardCommand = new MoveForwardCommand(DroneClientMock.Object);
@@ -26,14 +25,7 @@ namespace Icarus.Core.Tests.CommandTests
             moveForwardCommand.Execute();
 
             // assert
-            DroneClientMock.Verify(x => x.
-                Progress(
-                FlightMode.Progressive, 
-                0,
-                -0.05f,
-                0,
-                0)
-                , Times.Once);
+            DroneClientMock.Verify(x => x.MoveForward(), Times.Once);
         }
     }
 }

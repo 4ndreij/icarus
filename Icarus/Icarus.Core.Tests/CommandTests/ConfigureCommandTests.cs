@@ -1,11 +1,7 @@
-﻿using AR.Drone.Client.Configuration;
-using Icarus.Core.Commands;
+﻿using Icarus.Core.Commands;
 using Icarus.Core.Interfaces;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Icarus.Core.Tests.CommandTests
 {
@@ -26,16 +22,13 @@ namespace Icarus.Core.Tests.CommandTests
             // arrange
             var droneConfiguration = new DroneConfiguration.DroneConfiguration();
             configureCommand = new ConfigureCommand(DroneClientMock.Object);
-            DroneClientMock
-                .Setup(x => x.Configure())
-                .Returns(new Task<Settings>(() => new Settings()));
 
             // act
             configureCommand.SetConfiguration(droneConfiguration);
             configureCommand.Execute();
 
             // assert
-            DroneClientMock.Verify(x => x.Configure(), Times.Once);
+            DroneClientMock.Verify(x => x.Configure(droneConfiguration), Times.Once);
         }
     }
 }

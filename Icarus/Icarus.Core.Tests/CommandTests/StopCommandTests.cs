@@ -25,7 +25,7 @@ namespace Icarus.Core.Tests.CommandTests
             stopCommand.Execute();
 
             // assert
-            DroneClientMock.Verify(x => x.Land(), Times.Once);
+            DroneClientMock.Verify(x => x.Stop(), Times.Once);
         }
     }
 }

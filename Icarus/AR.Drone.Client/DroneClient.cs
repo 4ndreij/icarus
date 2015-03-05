@@ -10,11 +10,10 @@ using AR.Drone.Data;
 using AR.Drone.Data.Navigation;
 using AR.Drone.Infrastructure;
 using AR.Drone.Client.Configuration;
-using Icarus.Core.Interfaces;
 
 namespace AR.Drone.Client
 {
-    public class DroneClient : WorkerBase, IDroneClient
+    public class DroneClient : WorkerBase
     {
         private const string DefaultHostname = "192.168.1.1";
         private const int AckControlAndWaitForConfirmationTimeout = 1000;

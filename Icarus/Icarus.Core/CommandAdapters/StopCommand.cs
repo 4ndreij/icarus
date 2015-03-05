@@ -13,7 +13,7 @@ namespace Icarus.Core.Commands
 
         public override void Execute()
         {
-            droneClient.Land();
+            droneClient.Stop();
         }
     }
 }
