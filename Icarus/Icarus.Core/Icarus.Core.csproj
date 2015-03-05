@@ -37,32 +37,83 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Commands\Command.cs" />
-    <Compile Include="Commands\ConfigureCommand.cs" />
-    <Compile Include="Commands\HoverCommand.cs" />
+    <Compile Include="CommandAdapters\Command.cs" />
+    <Compile Include="CommandAdapters\ConfigureCommand.cs" />
+    <Compile Include="CommandAdapters\HoverCommand.cs" />
+    <Compile Include="DroneCommands\AtCommand.cs" />
+    <Compile Include="DroneCommands\CalibrateCommand.cs" />
+    <Compile Include="DroneCommands\CommandSender.cs" />
+    <Compile Include="DroneCommands\ComWdgCommand.cs" />
+    <Compile Include="DroneCommands\ConfigCommand.cs" />
+    <Compile Include="DroneCommands\ConfigIdsCommand.cs" />
+    <Compile Include="DroneCommands\ControlCommand.cs" />
+    <Compile Include="Enums\ControlMode.cs" />
+    <Compile Include="Enums\Device.cs" />
+    <Compile Include="DroneCommands\FlatTrimCommand.cs" />
+    <Compile Include="Enums\FlightMode.cs" />
+    <Compile Include="DroneCommands\ProgressiveCommand.cs" />
+    <Compile Include="DroneCommands\ProgressWithMagnetoCommand.cs" />
+    <Compile Include="DroneCommands\RefCommand.cs" />
+    <Compile Include="Enums\RefMode.cs" />
+    <Compile Include="DroneConfiguration\ConfigurationAcquisition.cs" />
+    <Compile Include="DroneConfiguration\FlightAnimation.cs" />
+    <Compile Include="DroneConfiguration\FlightAnimationType.cs" />
+    <Compile Include="DroneConfiguration\LedAnimation.cs" />
+    <Compile Include="DroneConfiguration\LedAnimationType.cs" />
+    <Compile Include="DroneConfiguration\NavdataOptions.cs" />
+    <Compile Include="DroneConfiguration\NetworkConfiguration.cs" />
+    <Compile Include="DroneConfiguration\SectionBase.cs" />
+    <Compile Include="DroneConfiguration\Sections.cs">
+      <DependentUpon>Sections.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DroneConfiguration\Settings.cs" />
+    <Compile Include="DroneConfiguration\UserboxCommand.cs" />
+    <Compile Include="DroneConfiguration\UserboxCommandType.cs" />
+    <Compile Include="DroneClients\DroneClient.cs" />
+    <Compile Include="Enums\StateRequest.cs" />
     <Compile Include="EventArguments\ProcessedCommandArgs.cs" />
     <Compile Include="Interfaces\ICommandFactory.cs" />
-    <Compile Include="Commands\MoveBackwardCommand.cs" />
-    <Compile Include="Commands\MoveDownCommand.cs" />
-    <Compile Include="Commands\MoveForwardCommand.cs" />
-    <Compile Include="Commands\MoveLeftCommand.cs" />
-    <Compile Include="Commands\MoveRightCommand.cs" />
-    <Compile Include="Commands\MoveUpCommand.cs" />
-    <Compile Include="Commands\StartCommand.cs" />
-    <Compile Include="Commands\StopCommand.cs" />
-    <Compile Include="DroneClients\WifiClient.cs" />
+    <Compile Include="CommandAdapters\MoveBackwardCommand.cs" />
+    <Compile Include="CommandAdapters\MoveDownCommand.cs" />
+    <Compile Include="CommandAdapters\MoveForwardCommand.cs" />
+    <Compile Include="CommandAdapters\MoveLeftCommand.cs" />
+    <Compile Include="CommandAdapters\MoveRightCommand.cs" />
+    <Compile Include="CommandAdapters\MoveUpCommand.cs" />
+    <Compile Include="CommandAdapters\StartCommand.cs" />
+    <Compile Include="CommandAdapters\StopCommand.cs" />
     <Compile Include="DroneConfiguration\DroneConfiguration.cs" />
     <Compile Include="Enums\CommandType.cs" />
     <Compile Include="Interfaces\ICommunicator.cs" />
     <Compile Include="Interfaces\IDroneClient.cs" />
     <Compile Include="Interfaces\IInputProvider.cs" />
     <Compile Include="Interfaces\IInputProviderAdapter.cs" />
+    <Compile Include="Navigation\NavdataAcquisition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AR.Drone.Data\AR.Drone.Data.csproj">
+      <Project>{7d1b0b10-82f9-413f-bee9-0174753d93a1}</Project>
+      <Name>AR.Drone.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AR.Drone.Infrastructure\AR.Drone.Infrastructure.csproj">
+      <Project>{5be68b3d-1112-464d-8c17-844e834bb3ba}</Project>
+      <Name>AR.Drone.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DroneConfiguration\Sections.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Sections.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
