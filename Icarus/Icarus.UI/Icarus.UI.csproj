@@ -112,9 +112,21 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AR.Drone.Client\AR.Drone.Client.csproj">
+      <Project>{93e2d2f2-5e9a-4c03-9fcd-0a364beefefd}</Project>
+      <Name>AR.Drone.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AR.Drone.Infrastructure\AR.Drone.Infrastructure.csproj">
+      <Project>{5be68b3d-1112-464d-8c17-844e834bb3ba}</Project>
+      <Name>AR.Drone.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Icarus.Core\Icarus.Core.csproj">
       <Project>{2ed26caf-e8d2-470e-af94-4d90c945b0a5}</Project>
       <Name>Icarus.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Icarus.DroneClients\Icarus.DroneClients.csproj">
+      <Project>{77d7be58-5bd7-458e-aa06-5d872207c6db}</Project>
+      <Name>Icarus.DroneClients</Name>
     </ProjectReference>
     <ProjectReference Include="..\Icarus.Infrastructure.ProviderLoader\Icarus.Infrastructure.ProviderLoader.csproj">
       <Project>{6a9d34da-acfb-409c-ad64-4b4d4d476b6e}</Project>

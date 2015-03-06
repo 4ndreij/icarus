@@ -3,8 +3,8 @@ using StructureMap;
 using Icarus.Core.Interfaces;
 using log4net;
 using Icarus.Infrastructure.CommandFactory;
-using Icarus.Core.DroneClients;
 using Icarus.Infrastructure.Communication;
+using Icarus.DroneClients;
 
 namespace Icarus.UI
 {
@@ -16,7 +16,7 @@ namespace Icarus.UI
             var container = new Container(x =>
             {
                 x.For<ILog>().Use(logger);
-                x.For<IDroneClient>().Use<WifiClient>();
+                x.For<IDroneClient>().Use<WifiDroneClient>();
                 x.For<ICommandFactory>().Use<CommandFactory>();
                 x.For<ICommunicator>().Use<CommandInvoker>();
                 x.For<IInputProviderAdapter>().Use<InputProviderAdapter>();

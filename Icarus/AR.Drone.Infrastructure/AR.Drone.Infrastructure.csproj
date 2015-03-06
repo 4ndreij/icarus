@@ -4,17 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2ED26CAF-E8D2-470E-AF94-4D90C945B0A5}</ProjectGuid>
+    <ProjectGuid>{5BE68B3D-1112-464D-8C17-844E834BB3BA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Icarus.Core</RootNamespace>
-    <AssemblyName>Icarus.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>AR.Drone.Infrastructure</RootNamespace>
+    <AssemblyName>AR.Drone.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,10 +22,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,36 +31,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="CommandAdapters\Command.cs" />
-    <Compile Include="CommandAdapters\ConfigureCommand.cs" />
-    <Compile Include="CommandAdapters\HoverCommand.cs" />
-    <Compile Include="EventArguments\ProcessedCommandArgs.cs" />
-    <Compile Include="Interfaces\ICommandFactory.cs" />
-    <Compile Include="CommandAdapters\MoveBackwardCommand.cs" />
-    <Compile Include="CommandAdapters\MoveDownCommand.cs" />
-    <Compile Include="CommandAdapters\MoveForwardCommand.cs" />
-    <Compile Include="CommandAdapters\MoveLeftCommand.cs" />
-    <Compile Include="CommandAdapters\MoveRightCommand.cs" />
-    <Compile Include="CommandAdapters\MoveUpCommand.cs" />
-    <Compile Include="CommandAdapters\StartCommand.cs" />
-    <Compile Include="CommandAdapters\StopCommand.cs" />
-    <Compile Include="DroneConfiguration\DroneConfiguration.cs" />
-    <Compile Include="Enums\CommandType.cs" />
-    <Compile Include="Interfaces\ICommunicator.cs" />
-    <Compile Include="Interfaces\IDroneClient.cs" />
-    <Compile Include="Interfaces\IInputProvider.cs" />
-    <Compile Include="Interfaces\IInputProviderAdapter.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Compile Include="ConcurrentQueueHelper.cs" />
+    <Compile Include="DisposableBase.cs" />
+    <Compile Include="InteropHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkerBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
