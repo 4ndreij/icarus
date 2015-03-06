@@ -2,12 +2,14 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using Icarus.Core.Enums;
 using Icarus.Core.Interfaces;
 using System.Windows;
+using Icarus.Infrastructure.ProviderLoader;
+using Icarus.Infrastructure.ProviderLoader.ProviderLoaderExceptions;
+using Microsoft.Win32;
 
 namespace Icarus.UI
 {
@@ -16,17 +18,14 @@ namespace Icarus.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        readonly WindowMessages messages;
-        readonly IInputProviderAdapter inputProviderAdapter;
+        IInputProviderAdapter inputProviderAdapter;
         private readonly Dispatcher dispatcher;
 
         public MainWindow()
         {
             InitializeComponent();
-            messages = new WindowMessages();
+
             dispatcher = Application.Current.MainWindow.Dispatcher;
-            inputProviderAdapter = App.Container.GetInstance<IInputProviderAdapter>();
-            inputProviderAdapter.OnCommandProcessed += inputProviderAdapter_OnCommandProcessed;
         }
 
         void inputProviderAdapter_OnCommandProcessed(object sender, Core.EventArguments.ProcessedCommandArgs e)
@@ -82,6 +81,46 @@ namespace Icarus.UI
             bmp.StreamSource = new MemoryStream(imageMem.ToArray());
             bmp.EndInit();
             imgConnectionStatus.Source = bmp;
+        }
+
+        private void btnLoadProvider_Click(object sender, RoutedEventArgs e)
+        {
+            var openFileDialog = new OpenFileDialog
+                                     {
+                                         Multiselect = false
+                                     };
+            if (openFileDialog.ShowDialog().GetValueOrDefault())
+            {
+               LoadAndSetupProvider(openFileDialog.FileName);
+            }
+        }
+
+        private void LoadAndSetupProvider(string path)
+        {
+            try
+            {
+                var providerLoaderAgent = new ProviderLoaderAgent(path);
+                var inputProvider = providerLoaderAgent.GetInputProvider();
+
+                App.Container.Configure(x => x.For<IInputProvider>().Use(t => (IInputProvider) Activator.CreateInstance(inputProvider)));
+                inputProviderAdapter = App.Container.GetInstance<IInputProviderAdapter>();
+                inputProviderAdapter.OnCommandProcessed += inputProviderAdapter_OnCommandProcessed;
+
+                lblProvider.Content = inputProvider.FullName;
+            }
+            catch (AssemblyNotSupportedException assemblyNotSupportedException)
+            {
+                MessageBox.Show(string.Format("The assembly on path \"{0}\" could not be loaded.", assemblyNotSupportedException.Path));
+            }
+            catch (ProviderNotFoundException providerNotFoundException)
+            {
+                MessageBox.Show(string.Format("The assembly \"{0}\" on path \"{1}\" does not contain a valid input provider.", providerNotFoundException.Assembly.FullName,
+                                              providerNotFoundException.Path));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Other blaaa:" + ex);
+            }
         }
     }
 }
