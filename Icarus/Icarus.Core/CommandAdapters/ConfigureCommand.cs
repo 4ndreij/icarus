@@ -6,10 +6,10 @@ namespace Icarus.Core.Commands
 {
     public class ConfigureCommand : Command
     {
-        readonly IDroneClient droneClient;
+        readonly IDrone droneClient;
         DroneConfiguration.DroneConfiguration droneConfiguration;
 
-        public ConfigureCommand(IDroneClient droneClient)
+        public ConfigureCommand(IDrone droneClient)
         {
             this.droneClient = droneClient;
         }

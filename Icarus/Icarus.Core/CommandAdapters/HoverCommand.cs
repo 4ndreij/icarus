@@ -4,9 +4,9 @@ namespace Icarus.Core.Commands
 {
     public class HoverCommand : Command
     {
-        private readonly IDroneClient droneClient;
+        private readonly IDrone droneClient;
 
-        public HoverCommand(IDroneClient droneClient)
+        public HoverCommand(IDrone droneClient)
         {
             this.droneClient = droneClient;
         }

@@ -7,9 +7,9 @@ namespace Icarus.Infrastructure.CommandFactory
 {
     public class CommandFactory : ICommandFactory
     {
-        private readonly IDroneClient droneClient;
+        private readonly IDrone droneClient;
 
-        public CommandFactory(IDroneClient droneClient)
+        public CommandFactory(IDrone droneClient)
         {
             this.droneClient = droneClient;
         }

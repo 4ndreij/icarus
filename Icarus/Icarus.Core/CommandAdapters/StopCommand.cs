@@ -4,9 +4,9 @@ namespace Icarus.Core.Commands
 {
     public class StopCommand : Command
     {
-        readonly IDroneClient droneClient;
+        readonly IDrone droneClient;
 
-        public StopCommand(IDroneClient droneClient)
+        public StopCommand(IDrone droneClient)
         {
             this.droneClient = droneClient;
         }

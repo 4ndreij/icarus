@@ -12,13 +12,30 @@ using System.Threading.Tasks;
 
 namespace Icarus.DroneClients
 {
-    public class WifiDroneClient : DroneClient, IDroneClient
+    public class ParrotDrone : IDrone, InputProviderAdapter
     {
+        DroneClient droneClient;
+
+        public ParrotDrone()
+        {
+            droneClient = new DroneClient();
+        }
+
+        public ParrotDrone(string hostName)
+        {
+            droneClient = new DroneClient(hostName);
+        }
+
+        public ParrotDrone(DroneClient droneClient)
+        {
+            this.droneClient = droneClient;
+        }
+
         Settings settings;
 
         public void Configure(DroneConfiguration droneConfiguration)
         {
-            Task<Settings> configurationTask = base.Configure();
+            Task<Settings> configurationTask = droneClient.GetConfigurationTask();
             configurationTask.ContinueWith(
                 delegate(Task<Settings> task)
                 {
@@ -36,42 +53,48 @@ namespace Icarus.DroneClients
 
         public void Start()
         {
-            base.Takeoff();
+            droneClient.Takeoff();
         }
 
         public void Stop()
         {
-            base.Land();
+            droneClient.Land();
         }
 
         public void MoveLeft()
         {
-            base.Progress(FlightMode.Progressive, yaw: 0.25f);
+            droneClient.Progress(FlightMode.Progressive, yaw: 0.25f);
         }
 
         public void MoveRight()
         {
-            base.Progress(FlightMode.Progressive, yaw: -0.25f);
+            droneClient.Progress(FlightMode.Progressive, yaw: -0.25f);
         }
 
         public void MoveUp()
         {
-            base.Progress(FlightMode.Progressive, gaz: 0.25f);
+            droneClient.Progress(FlightMode.Progressive, gaz: 0.25f);
         }
 
         public void MoveDown()
         {
-            base.Progress(FlightMode.Progressive, gaz: -0.25f);
+            droneClient.Progress(FlightMode.Progressive, gaz: -0.25f);
         }
 
         public void MoveForward()
         {
-            base.Progress(FlightMode.Progressive, pitch: -0.05f);
+            droneClient.Progress(FlightMode.Progressive, pitch: -0.05f);
         }
 
         public void MoveBackward()
         {
-            base.Progress(FlightMode.Progressive, pitch: 0.05f);
+            droneClient.Progress(FlightMode.Progressive, pitch: 0.05f);
+        }
+
+
+        public void Hover()
+        {
+            droneClient.Hover();
         }
     }
 }

@@ -196,7 +196,7 @@ namespace AR.Drone.Client
 
         #region Api
 
-        public Task<Settings> Configure()
+        public Task<Settings> GetConfigurationTask()
         {
             var configurationAcquisition = new ConfigurationAcquisition(this);
             var task = configurationAcquisition.CreateTask();

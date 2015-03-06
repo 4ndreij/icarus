@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Icarus.Core.Interfaces
 {
-    public interface IDroneClient
+    public interface IDrone
     {
         void Configure(DroneConfiguration.DroneConfiguration droneConfiguration);
 
