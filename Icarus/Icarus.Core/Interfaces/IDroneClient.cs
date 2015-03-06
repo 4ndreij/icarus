@@ -1,9 +1,6 @@
-﻿
-using System.Threading.Tasks;
-
-namespace Icarus.Core.Interfaces
+﻿namespace Icarus.Core.Interfaces
 {
-    public interface IDroneClient
+    public interface IDroneClient : IDynamicLoadable
     {
         void Configure(DroneConfiguration.DroneConfiguration droneConfiguration);
 

@@ -6,7 +6,8 @@ using Icarus.Infrastructure.ProviderLoader.ProviderLoaderExceptions;
 
 namespace Icarus.Infrastructure.ProviderLoader
 {
-    public class ProviderLoaderAgent
+    public class ProviderLoaderAgent<T>
+        where T : IDynamicLoadable
     {
         public string Path { get; private set; }
         public Assembly Assembly { get; private set; }
@@ -32,7 +33,7 @@ namespace Icarus.Infrastructure.ProviderLoader
         {
             LoadInputProviderAssembly();
           
-            var providerType = Assembly.GetTypes().FirstOrDefault(t => t.GetInterfaces().Contains(typeof(IInputProvider)));
+            var providerType = Assembly.GetTypes().FirstOrDefault(t => t.GetInterfaces().Contains(typeof(T)));
 
             if (providerType == null)
             {

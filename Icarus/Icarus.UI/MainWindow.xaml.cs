@@ -99,7 +99,7 @@ namespace Icarus.UI
         {
             try
             {
-                var providerLoaderAgent = new ProviderLoaderAgent(path);
+                var providerLoaderAgent = new ProviderLoaderAgent<IInputProvider>(path);
                 var inputProvider = providerLoaderAgent.GetInputProvider();
 
                 App.Container.Configure(x => x.For<IInputProvider>().Use(t => (IInputProvider) Activator.CreateInstance(inputProvider)));
