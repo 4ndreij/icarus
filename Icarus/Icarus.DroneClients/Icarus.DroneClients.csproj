@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2ED26CAF-E8D2-470E-AF94-4D90C945B0A5}</ProjectGuid>
+    <ProjectGuid>{77D7BE58-5BD7-458E-AA06-5D872207C6DB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Icarus.Core</RootNamespace>
-    <AssemblyName>Icarus.Core</AssemblyName>
+    <RootNamespace>Icarus.DroneClients</RootNamespace>
+    <AssemblyName>Icarus.DroneClients</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,10 +20,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,36 +29,32 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CommandAdapters\Command.cs" />
-    <Compile Include="CommandAdapters\ConfigureCommand.cs" />
-    <Compile Include="CommandAdapters\HoverCommand.cs" />
-    <Compile Include="EventArguments\ProcessedCommandArgs.cs" />
-    <Compile Include="Interfaces\ICommandFactory.cs" />
-    <Compile Include="CommandAdapters\MoveBackwardCommand.cs" />
-    <Compile Include="CommandAdapters\MoveDownCommand.cs" />
-    <Compile Include="CommandAdapters\MoveForwardCommand.cs" />
-    <Compile Include="CommandAdapters\MoveLeftCommand.cs" />
-    <Compile Include="CommandAdapters\MoveRightCommand.cs" />
-    <Compile Include="CommandAdapters\MoveUpCommand.cs" />
-    <Compile Include="CommandAdapters\StartCommand.cs" />
-    <Compile Include="CommandAdapters\StopCommand.cs" />
-    <Compile Include="DroneConfiguration\DroneConfiguration.cs" />
-    <Compile Include="Enums\CommandType.cs" />
-    <Compile Include="Interfaces\ICommunicator.cs" />
-    <Compile Include="Interfaces\IDroneClient.cs" />
-    <Compile Include="Interfaces\IInputProvider.cs" />
-    <Compile Include="Interfaces\IInputProviderAdapter.cs" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="WifiDroneClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <ProjectReference Include="..\AR.Drone.Client\AR.Drone.Client.csproj">
+      <Project>{93e2d2f2-5e9a-4c03-9fcd-0a364beefefd}</Project>
+      <Name>AR.Drone.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AR.Drone.Infrastructure\AR.Drone.Infrastructure.csproj">
+      <Project>{5be68b3d-1112-464d-8c17-844e834bb3ba}</Project>
+      <Name>AR.Drone.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Icarus.Core\Icarus.Core.csproj">
+      <Project>{2ed26caf-e8d2-470e-af94-4d90c945b0a5}</Project>
+      <Name>Icarus.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

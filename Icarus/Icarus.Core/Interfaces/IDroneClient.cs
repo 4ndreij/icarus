@@ -1,12 +1,19 @@
-﻿namespace Icarus.Core.Interfaces
+﻿
+using System.Threading.Tasks;
+
+namespace Icarus.Core.Interfaces
 {
     public interface IDroneClient
     {
+        void Configure(DroneConfiguration.DroneConfiguration droneConfiguration);
+
         void Start();
 
         void Stop();
 
-        void Configure(DroneConfiguration.DroneConfiguration droneConfiguration);
+        void MoveLeft();
+
+        void MoveRight();
 
         void MoveUp();
 
@@ -15,10 +22,6 @@
         void MoveForward();
 
         void MoveBackward();
-
-        void MoveLeft();
-
-        void MoveRight();
 
         void Hover();
     }
