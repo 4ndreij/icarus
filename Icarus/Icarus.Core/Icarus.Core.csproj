@@ -54,6 +54,7 @@
     <Compile Include="Enums\CommandType.cs" />
     <Compile Include="Interfaces\ICommunicator.cs" />
     <Compile Include="Interfaces\IDroneClient.cs" />
+    <Compile Include="Interfaces\IDynamicLoadable.cs" />
     <Compile Include="Interfaces\IInputProvider.cs" />
     <Compile Include="Interfaces\IInputProviderAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
