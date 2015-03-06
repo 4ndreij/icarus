@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Icarus.DroneClients
 {
-    public class ParrotDrone : IDrone, InputProviderAdapter
+    public class ParrotDrone : IDrone //, InputProviderAdapter
     {
         DroneClient droneClient;
 

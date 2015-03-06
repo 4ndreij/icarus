@@ -2,7 +2,7 @@
 
 namespace Icarus.Core.Interfaces
 {
-    public interface IInputProvider
+    public interface IInputProvider : IDynamicLoadable
     {
         event EventHandler OnStart;
 
