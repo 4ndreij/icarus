@@ -122,7 +122,7 @@ namespace Icarus.UI
         private void btnLoadDrone_Click(object sender, RoutedEventArgs e)
         {
             var fileName = FileDialog();
-            LoadAndSetupDrones(fileName);
+            LoadAndSetupDrone(fileName);
         }
 
         string FileDialog()
@@ -138,7 +138,7 @@ namespace Icarus.UI
             return null;
         }
 
-        void LoadAndSetupDrones(string path)
+        void LoadAndSetupDrone(string path)
         {
             try
             {

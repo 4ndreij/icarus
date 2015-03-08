@@ -53,10 +53,10 @@
     <Compile Include="DroneCommands\RefCommand.cs" />
     <Compile Include="DroneConfiguration\ConfigurationAcquisition.cs" />
     <Compile Include="DroneConfiguration\FlightAnimation.cs" />
-    <Compile Include="DroneConfiguration\FlightAnimationType.cs" />
+    <Compile Include="Enums\FlightAnimationType.cs" />
     <Compile Include="DroneConfiguration\LedAnimation.cs" />
-    <Compile Include="DroneConfiguration\LedAnimationType.cs" />
-    <Compile Include="DroneConfiguration\NavdataOptions.cs" />
+    <Compile Include="Enums\LedAnimationType.cs" />
+    <Compile Include="Enums\NavdataOptions.cs" />
     <Compile Include="DroneConfiguration\NetworkConfiguration.cs" />
     <Compile Include="DroneConfiguration\SectionBase.cs" />
     <Compile Include="DroneConfiguration\Sections.cs">
@@ -66,7 +66,7 @@
     </Compile>
     <Compile Include="DroneConfiguration\Settings.cs" />
     <Compile Include="DroneConfiguration\UserboxCommand.cs" />
-    <Compile Include="DroneConfiguration\UserboxCommandType.cs" />
+    <Compile Include="Enums\UserboxCommandType.cs" />
     <Compile Include="Enums\ControlMode.cs" />
     <Compile Include="Enums\Device.cs" />
     <Compile Include="Enums\FlightMode.cs" />

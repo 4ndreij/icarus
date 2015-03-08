@@ -10,6 +10,7 @@ using AR.Drone.Data;
 using AR.Drone.Data.Navigation;
 using AR.Drone.Infrastructure;
 using AR.Drone.Client.Configuration;
+using AR.Drone.Client.Enums;
 
 namespace AR.Drone.Client
 {

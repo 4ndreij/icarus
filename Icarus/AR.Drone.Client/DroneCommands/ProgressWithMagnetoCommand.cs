@@ -1,3 +1,4 @@
+using AR.Drone.Client.Enums;
 using AR.Drone.Data;
 
 namespace AR.Drone.Client.Command

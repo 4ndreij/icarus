@@ -1,4 +1,4 @@
-namespace AR.Drone.Client.Configuration
+namespace AR.Drone.Client.Enums
 {
     public enum UserboxCommandType
     {

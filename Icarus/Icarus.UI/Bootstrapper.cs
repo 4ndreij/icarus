@@ -6,14 +6,15 @@ using Icarus.Infrastructure.CommandFactory;
 using Icarus.Infrastructure.Communication;
 using Icarus.ParrotDrone;
 using AR.Drone.Client;
+using Icarus.Core.DroneConfiguration;
 
 namespace Icarus.UI
 {
     public class Bootstrapper
     {
-        public IContainer Bootstrap()
+        public IContainer Bootstrap(DroneConfiguration droneConfiguration)
         {
-            var droneClient = new DroneClient();
+            var droneClient = new DroneClient(droneConfiguration.HostName);
             var logger = ConfigureLogger();
             var container = new Container(x =>
             {

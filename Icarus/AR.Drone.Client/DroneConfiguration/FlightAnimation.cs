@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AR.Drone.Client.Enums;
+using System;
 
 namespace AR.Drone.Client.Configuration
 {

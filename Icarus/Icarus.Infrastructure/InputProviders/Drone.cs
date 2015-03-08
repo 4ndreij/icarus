@@ -62,7 +62,7 @@ namespace Icarus.Infrastructure.InputProviders
 
         private void inputProvider_OnHover(object sender, EventArgs e)
         {
-            Command command = commandFactory.CreateCommand(CommandType.Hover);
+            var command = commandFactory.CreateCommand(CommandType.Hover);
             communicator.ExecuteCommand(command);
             if (OnCommandProcessed != null)
             {
@@ -72,7 +72,7 @@ namespace Icarus.Infrastructure.InputProviders
 
         private void inputProvider_OnMoveUp(object sender, EventArgs e)
         {
-            Command command = commandFactory.CreateCommand(CommandType.MoveUp);
+            var command = commandFactory.CreateCommand(CommandType.MoveUp);
             communicator.ExecuteCommand(command);
             if (OnCommandProcessed != null)
             {
@@ -82,7 +82,7 @@ namespace Icarus.Infrastructure.InputProviders
 
         private void inputProvider_OnMoveRight(object sender, EventArgs e)
         {
-            Command command = commandFactory.CreateCommand(CommandType.MoveRight);
+            var command = commandFactory.CreateCommand(CommandType.MoveRight);
             communicator.ExecuteCommand(command);
             if (OnCommandProcessed != null)
             {
@@ -92,7 +92,7 @@ namespace Icarus.Infrastructure.InputProviders
 
         private void inputProvider_OnMoveLeft(object sender, EventArgs e)
         {
-            Command command = commandFactory.CreateCommand(CommandType.MoveLeft);
+            var command = commandFactory.CreateCommand(CommandType.MoveLeft);
             communicator.ExecuteCommand(command);
             if (OnCommandProcessed != null)
             {
@@ -102,7 +102,7 @@ namespace Icarus.Infrastructure.InputProviders
 
         private void inputProvider_OnMoveForward(object sender, EventArgs e)
         {
-            Command command = commandFactory.CreateCommand(CommandType.MoveForward);
+            var command = commandFactory.CreateCommand(CommandType.MoveForward);
             communicator.ExecuteCommand(command);
             if (OnCommandProcessed != null)
             {
@@ -112,7 +112,7 @@ namespace Icarus.Infrastructure.InputProviders
 
         private void inputProvider_OnMoveDown(object sender, EventArgs e)
         {
-            Command command = commandFactory.CreateCommand(CommandType.MoveDown);
+            var command = commandFactory.CreateCommand(CommandType.MoveDown);
             communicator.ExecuteCommand(command);
             if (OnCommandProcessed != null)
             {
@@ -122,7 +122,7 @@ namespace Icarus.Infrastructure.InputProviders
 
         private void inputProvider_OnMoveBackward(object sender, EventArgs e)
         {
-            Command command = commandFactory.CreateCommand(CommandType.MoveBackward);
+            var command = commandFactory.CreateCommand(CommandType.MoveBackward);
             communicator.ExecuteCommand(command);
             if (OnCommandProcessed != null)
             {
@@ -132,7 +132,7 @@ namespace Icarus.Infrastructure.InputProviders
 
         private void inputProvider_OnStop(object sender, EventArgs e)
         {
-            Command command = commandFactory.CreateCommand(CommandType.Stop);
+            var command = commandFactory.CreateCommand(CommandType.Stop);
             communicator.ExecuteCommand(command);
             if (OnCommandProcessed != null)
             {
@@ -142,7 +142,10 @@ namespace Icarus.Infrastructure.InputProviders
 
         private void inputProvider_OnStart(object sender, EventArgs e)
         {
-            Command command = commandFactory.CreateCommand(CommandType.Start);
+            var configureCommand = commandFactory.CreateCommand(CommandType.Configure);
+            communicator.ExecuteCommand(configureCommand);
+
+            var command = commandFactory.CreateCommand(CommandType.Start);
             communicator.ExecuteCommand(command);
 
             if (OnCommandProcessed != null)

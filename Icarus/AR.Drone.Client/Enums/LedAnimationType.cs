@@ -1,6 +1,6 @@
 using System;
 
-namespace AR.Drone.Client
+namespace AR.Drone.Client.Enums
 {
     public enum LedAnimationType
     {

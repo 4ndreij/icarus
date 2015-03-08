@@ -1,3 +1,4 @@
+using AR.Drone.Client.Enums;
 namespace AR.Drone.Client.Command
 {
     public class ControlCommand : AtCommand
