@@ -4,16 +4,16 @@ namespace Icarus.Core.Commands
 {
     public class StartCommand : Command
     {
-        readonly IDrone droneClient;
+        readonly IDrone drone;
 
-        public StartCommand(IDrone droneClient)
+        public StartCommand(IDrone drone)
         {
-            this.droneClient = droneClient;
+            this.drone = drone;
         }
 
         public override void Execute()
         {
-            droneClient.Start();
+            drone.Start();
         }
     }
 }

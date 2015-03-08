@@ -4,16 +4,16 @@ namespace Icarus.Core.Commands
 {
     public class StopCommand : Command
     {
-        readonly IDrone droneClient;
+        readonly IDrone drone;
 
-        public StopCommand(IDrone droneClient)
+        public StopCommand(IDrone drone)
         {
-            this.droneClient = droneClient;
+            this.drone = drone;
         }
 
         public override void Execute()
         {
-            droneClient.Stop();
+            drone.Stop();
         }
     }
 }

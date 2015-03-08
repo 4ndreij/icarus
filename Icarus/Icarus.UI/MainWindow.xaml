@@ -26,6 +26,7 @@
         <Label x:Name="lblDescend" Content="PageDown: Descend" HorizontalAlignment="Left" Margin="74,293,0,0" VerticalAlignment="Top" FontSize="8" Grid.ColumnSpan="3"/>
         <Button x:Name="btnLoadProvider" Content="Load Provider" HorizontalAlignment="Left" Margin="20,319,0,0" VerticalAlignment="Top" Width="82" Click="btnLoadProvider_Click"/>
         <Label x:Name="lblProvider" Content="" HorizontalAlignment="Left" Margin="108,317,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="508"/>
-
+        <Button x:Name="btnLoadDrone" HorizontalAlignment="Left" Margin="20,354,0,0" VerticalAlignment="Top" Width="82" Click="btnLoadDrone_Click" Height="20" Panel.ZIndex="1" Content="Load Drone"/>
+        <Label x:Name="lblDrone" Content="" HorizontalAlignment="Left" Margin="0,348,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="508" Grid.Column="1"/>
     </Grid>
 </Window>

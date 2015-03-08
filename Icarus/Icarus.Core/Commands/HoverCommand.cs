@@ -4,16 +4,16 @@ namespace Icarus.Core.Commands
 {
     public class HoverCommand : Command
     {
-        private readonly IDrone droneClient;
+        private readonly IDrone drone;
 
-        public HoverCommand(IDrone droneClient)
+        public HoverCommand(IDrone drone)
         {
-            this.droneClient = droneClient;
+            this.drone = drone;
         }
 
         public override void Execute()
         {
-            droneClient.Hover();
+            drone.Hover();
         }
     }
 }

@@ -37,19 +37,19 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CommandAdapters\Command.cs" />
-    <Compile Include="CommandAdapters\ConfigureCommand.cs" />
-    <Compile Include="CommandAdapters\HoverCommand.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\ConfigureCommand.cs" />
+    <Compile Include="Commands\HoverCommand.cs" />
     <Compile Include="EventArguments\ProcessedCommandArgs.cs" />
     <Compile Include="Interfaces\ICommandFactory.cs" />
-    <Compile Include="CommandAdapters\MoveBackwardCommand.cs" />
-    <Compile Include="CommandAdapters\MoveDownCommand.cs" />
-    <Compile Include="CommandAdapters\MoveForwardCommand.cs" />
-    <Compile Include="CommandAdapters\MoveLeftCommand.cs" />
-    <Compile Include="CommandAdapters\MoveRightCommand.cs" />
-    <Compile Include="CommandAdapters\MoveUpCommand.cs" />
-    <Compile Include="CommandAdapters\StartCommand.cs" />
-    <Compile Include="CommandAdapters\StopCommand.cs" />
+    <Compile Include="Commands\MoveBackwardCommand.cs" />
+    <Compile Include="Commands\MoveDownCommand.cs" />
+    <Compile Include="Commands\MoveForwardCommand.cs" />
+    <Compile Include="Commands\MoveLeftCommand.cs" />
+    <Compile Include="Commands\MoveRightCommand.cs" />
+    <Compile Include="Commands\MoveUpCommand.cs" />
+    <Compile Include="Commands\StartCommand.cs" />
+    <Compile Include="Commands\StopCommand.cs" />
     <Compile Include="DroneConfiguration\DroneConfiguration.cs" />
     <Compile Include="Enums\CommandType.cs" />
     <Compile Include="Interfaces\ICommunicator.cs" />

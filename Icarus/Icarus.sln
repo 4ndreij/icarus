@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.Core", "Icarus.Core\Icarus.Core.csproj", "{2ED26CAF-E8D2-470E-AF94-4D90C945B0A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.Infrastructure", "Icarus.Infrastructure\Icarus.Infrastructure.csproj", "{459F7D9F-78C3-4F25-807F-9BC74234CFAF}"
@@ -26,9 +28,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.Infrastructure.Keybo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.Infrastructure.ProviderLoader", "Icarus.Infrastructure.ProviderLoader\Icarus.Infrastructure.ProviderLoader.csproj", "{6A9D34DA-ACFB-409C-AD64-4B4D4D476B6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.DroneClients", "Icarus.DroneClients\Icarus.DroneClients.csproj", "{77D7BE58-5BD7-458E-AA06-5D872207C6DB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR.Drone.Client", "AR.Drone.Client\AR.Drone.Client.csproj", "{93E2D2F2-5E9A-4C03-9FCD-0A364BEEFEFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.ParrotDrone", "Icarus.ParrotDrone\Icarus.ParrotDrone.csproj", "{77D7BE58-5BD7-458E-AA06-5D872207C6DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -90,18 +92,18 @@ Global
 		{6A9D34DA-ACFB-409C-AD64-4B4D4D476B6E}.Development|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A9D34DA-ACFB-409C-AD64-4B4D4D476B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A9D34DA-ACFB-409C-AD64-4B4D4D476B6E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Development|Any CPU.ActiveCfg = Debug|Any CPU
-		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Development|Any CPU.Build.0 = Debug|Any CPU
-		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{93E2D2F2-5E9A-4C03-9FCD-0A364BEEFEFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{93E2D2F2-5E9A-4C03-9FCD-0A364BEEFEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93E2D2F2-5E9A-4C03-9FCD-0A364BEEFEFD}.Development|Any CPU.ActiveCfg = Debug|Any CPU
 		{93E2D2F2-5E9A-4C03-9FCD-0A364BEEFEFD}.Development|Any CPU.Build.0 = Debug|Any CPU
 		{93E2D2F2-5E9A-4C03-9FCD-0A364BEEFEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93E2D2F2-5E9A-4C03-9FCD-0A364BEEFEFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

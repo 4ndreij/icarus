@@ -10,9 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Icarus.DroneClients
+namespace Icarus.ParrotDrone
 {
-    public class ParrotDrone : IDrone //, InputProviderAdapter
+    public class ParrotDrone : IDrone, IDynamicLoadable
     {
         DroneClient droneClient;
 
@@ -90,7 +90,6 @@ namespace Icarus.DroneClients
         {
             droneClient.Progress(FlightMode.Progressive, pitch: 0.05f);
         }
-
 
         public void Hover()
         {

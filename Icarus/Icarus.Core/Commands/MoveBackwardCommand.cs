@@ -4,16 +4,16 @@ namespace Icarus.Core.Commands
 {
     public class MoveBackwardCommand : Command
     {
-        readonly IDrone droneClient;
+        readonly IDrone drone;
 
-        public MoveBackwardCommand(IDrone droneClient)
+        public MoveBackwardCommand(IDrone drone)
         {
-            this.droneClient = droneClient;
+            this.drone = drone;
         }
 
         public override void Execute()
         {
-            droneClient.MoveBackward();
+            drone.MoveBackward();
         }
     }
 }

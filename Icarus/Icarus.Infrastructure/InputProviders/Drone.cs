@@ -3,18 +3,33 @@ using Icarus.Core.Commands;
 using Icarus.Core.Enums;
 using Icarus.Core.EventArguments;
 using Icarus.Core.Interfaces;
+using System.Collections.Generic;
 
 namespace Icarus.Infrastructure.InputProviders
 {
-    public class InputProviderAdapter : IInputProviderAdapter
+    public class Drone : IInputProviderAdapter
     {
         private readonly ICommandFactory commandFactory;
         private readonly ICommunicator communicator;
-        private readonly IInputProvider inputProvider;
+        private readonly IList<IInputProvider> inputProviders;
 
-        public InputProviderAdapter(IInputProvider inputProvider, ICommandFactory commandFactory, ICommunicator communicator)
+        public Drone(
+           IInputProvider inputProvider,
+           ICommandFactory commandFactory,
+           ICommunicator communicator)
         {
-            this.inputProvider = inputProvider;
+            this.inputProviders = new List<IInputProvider>() { inputProvider };
+            this.commandFactory = commandFactory;
+            this.communicator = communicator;
+            SubscribeToInputProviderEvents();
+        }
+
+        public Drone(
+            IList<IInputProvider> inputProviders,
+            ICommandFactory commandFactory,
+            ICommunicator communicator)
+        {
+            this.inputProviders = inputProviders;
             this.commandFactory = commandFactory;
             this.communicator = communicator;
             SubscribeToInputProviderEvents();
@@ -24,22 +39,25 @@ namespace Icarus.Infrastructure.InputProviders
 
         private void SubscribeToInputProviderEvents()
         {
-            inputProvider.OnStart += inputProvider_OnStart;
-            inputProvider.OnStop += inputProvider_OnStop;
-            inputProvider.OnMoveBackward += inputProvider_OnMoveBackward;
-            inputProvider.OnMoveBackwardStopped += inputProvider_OnHover;
-            inputProvider.OnMoveDown += inputProvider_OnMoveDown;
-            inputProvider.OnMoveDownStopped += inputProvider_OnHover;
-            inputProvider.OnMoveForward += inputProvider_OnMoveForward;
-            inputProvider.OnMoveForwardStopped += inputProvider_OnHover;
-            inputProvider.OnMoveLeft += inputProvider_OnMoveLeft;
-            inputProvider.OnMoveLeftStopped += inputProvider_OnHover;
-            inputProvider.OnMoveRight += inputProvider_OnMoveRight;
-            inputProvider.OnMoveRightStopped += inputProvider_OnHover;
-            inputProvider.OnMoveUp += inputProvider_OnMoveUp;
-            inputProvider.OnMoveUpStopped += inputProvider_OnStop;
-            inputProvider.OnHover += inputProvider_OnHover;
-            inputProvider.OnHoverStopped += inputProvider_OnHover;
+            foreach (var inputProvider in inputProviders)
+            {
+                inputProvider.OnStart += inputProvider_OnStart;
+                inputProvider.OnStop += inputProvider_OnStop;
+                inputProvider.OnMoveBackward += inputProvider_OnMoveBackward;
+                inputProvider.OnMoveBackwardStopped += inputProvider_OnHover;
+                inputProvider.OnMoveDown += inputProvider_OnMoveDown;
+                inputProvider.OnMoveDownStopped += inputProvider_OnHover;
+                inputProvider.OnMoveForward += inputProvider_OnMoveForward;
+                inputProvider.OnMoveForwardStopped += inputProvider_OnHover;
+                inputProvider.OnMoveLeft += inputProvider_OnMoveLeft;
+                inputProvider.OnMoveLeftStopped += inputProvider_OnHover;
+                inputProvider.OnMoveRight += inputProvider_OnMoveRight;
+                inputProvider.OnMoveRightStopped += inputProvider_OnHover;
+                inputProvider.OnMoveUp += inputProvider_OnMoveUp;
+                inputProvider.OnMoveUpStopped += inputProvider_OnStop;
+                inputProvider.OnHover += inputProvider_OnHover;
+                inputProvider.OnHoverStopped += inputProvider_OnHover;
+            }
         }
 
         private void inputProvider_OnHover(object sender, EventArgs e)
@@ -48,7 +66,7 @@ namespace Icarus.Infrastructure.InputProviders
             communicator.ExecuteCommand(command);
             if (OnCommandProcessed != null)
             {
-                OnCommandProcessed(this, new ProcessedCommandArgs{CommandType = CommandType.Hover});
+                OnCommandProcessed(this, new ProcessedCommandArgs { CommandType = CommandType.Hover });
             }
         }
 
