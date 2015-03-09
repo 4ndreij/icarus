@@ -21,7 +21,7 @@ namespace Icarus.Infrastructure.InputProviders
             this.inputProviders = new List<IInputProvider>() { inputProvider };
             this.commandFactory = commandFactory;
             this.communicator = communicator;
-            SubscribeToInputProviderEvents();
+            SubscribeToInputProvidersEvents();
         }
 
         public Drone(
@@ -32,31 +32,54 @@ namespace Icarus.Infrastructure.InputProviders
             this.inputProviders = inputProviders;
             this.commandFactory = commandFactory;
             this.communicator = communicator;
-            SubscribeToInputProviderEvents();
+            SubscribeToInputProvidersEvents();
         }
 
         public event EventHandler<ProcessedCommandArgs> OnCommandProcessed;
 
-        private void SubscribeToInputProviderEvents()
+        public void SubscribeInputProvider(IInputProvider newInputProvider)
+        {
+            bool providerAlreadyExists = false;
+            foreach (var provider in this.inputProviders)
+            {
+                if (provider.GetType() == newInputProvider.GetType())
+                {
+                    providerAlreadyExists = true;
+                    break;
+                }
+            }
+            if (!providerAlreadyExists)
+            {
+                inputProviders.Add(newInputProvider);
+                SubscribeToInputProviderEvents(newInputProvider);
+            }
+        }
+
+        void SubscribeToInputProviderEvents(IInputProvider inputProvider)
+        {
+            inputProvider.OnStart += inputProvider_OnStart;
+            inputProvider.OnStop += inputProvider_OnStop;
+            inputProvider.OnMoveBackward += inputProvider_OnMoveBackward;
+            inputProvider.OnMoveBackwardStopped += inputProvider_OnHover;
+            inputProvider.OnMoveDown += inputProvider_OnMoveDown;
+            inputProvider.OnMoveDownStopped += inputProvider_OnHover;
+            inputProvider.OnMoveForward += inputProvider_OnMoveForward;
+            inputProvider.OnMoveForwardStopped += inputProvider_OnHover;
+            inputProvider.OnMoveLeft += inputProvider_OnMoveLeft;
+            inputProvider.OnMoveLeftStopped += inputProvider_OnHover;
+            inputProvider.OnMoveRight += inputProvider_OnMoveRight;
+            inputProvider.OnMoveRightStopped += inputProvider_OnHover;
+            inputProvider.OnMoveUp += inputProvider_OnMoveUp;
+            inputProvider.OnMoveUpStopped += inputProvider_OnStop;
+            inputProvider.OnHover += inputProvider_OnHover;
+            inputProvider.OnHoverStopped += inputProvider_OnHover;
+        }
+
+        private void SubscribeToInputProvidersEvents()
         {
             foreach (var inputProvider in inputProviders)
             {
-                inputProvider.OnStart += inputProvider_OnStart;
-                inputProvider.OnStop += inputProvider_OnStop;
-                inputProvider.OnMoveBackward += inputProvider_OnMoveBackward;
-                inputProvider.OnMoveBackwardStopped += inputProvider_OnHover;
-                inputProvider.OnMoveDown += inputProvider_OnMoveDown;
-                inputProvider.OnMoveDownStopped += inputProvider_OnHover;
-                inputProvider.OnMoveForward += inputProvider_OnMoveForward;
-                inputProvider.OnMoveForwardStopped += inputProvider_OnHover;
-                inputProvider.OnMoveLeft += inputProvider_OnMoveLeft;
-                inputProvider.OnMoveLeftStopped += inputProvider_OnHover;
-                inputProvider.OnMoveRight += inputProvider_OnMoveRight;
-                inputProvider.OnMoveRightStopped += inputProvider_OnHover;
-                inputProvider.OnMoveUp += inputProvider_OnMoveUp;
-                inputProvider.OnMoveUpStopped += inputProvider_OnStop;
-                inputProvider.OnHover += inputProvider_OnHover;
-                inputProvider.OnHoverStopped += inputProvider_OnHover;
+                SubscribeToInputProviderEvents(inputProvider);
             }
         }
 

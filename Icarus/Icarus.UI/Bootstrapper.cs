@@ -23,7 +23,7 @@ namespace Icarus.UI
                 x.For<IDrone>().UseSpecial(y => y.ConstructedBy(_ => new ParrotDrone.ParrotDrone(droneClient)));
                 x.For<ICommandFactory>().Use<CommandFactory>();
                 x.For<ICommunicator>().Use<CommandInvoker>();
-                x.For<IInputProviderAdapter>().Use<Drone>();
+                x.For<IInputProviderAdapter>().Singleton().Use<Drone>();
             });
             return container;
         }

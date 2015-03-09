@@ -95,14 +95,17 @@ namespace Icarus.UI
             try
             {
                 var providerLoaderAgent = new ProviderLoaderAgent<IInputProvider>(path);
-                var inputProvider = providerLoaderAgent.GetInputProvider();
-
+                var inputProviderType = providerLoaderAgent.GetInputProvider();
+                var inputProvider = (IInputProvider)Activator.CreateInstance(inputProviderType);
+                
                 App.Container.Configure(x => x.For<IInputProvider>()
-                    .Use(t => (IInputProvider)Activator.CreateInstance(inputProvider)));
+                    .Use(t => inputProvider));
+
                 inputProviderAdapter = App.Container.GetInstance<IInputProviderAdapter>();
+                inputProviderAdapter.SubscribeInputProvider(inputProvider);
                 inputProviderAdapter.OnCommandProcessed += inputProviderAdapter_OnCommandProcessed;
 
-                lblProvider.Content = inputProvider.FullName;
+                lblProvider.Content = inputProviderType.FullName;
             }
             catch (AssemblyNotSupportedException assemblyNotSupportedException)
             {
@@ -148,9 +151,6 @@ namespace Icarus.UI
                 var drone = (IDrone)Activator.CreateInstance(droneProvider, droneClient);
 
                 App.Container.Configure(x => x.For<IDrone>().Use(t => drone));
-
-                var droneee = App.Container.GetInstance<IDrone>();
-                droneee.Hover();
 
                 lblDrone.Content = droneProvider.FullName;
             }
