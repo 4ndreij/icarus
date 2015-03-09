@@ -9,34 +9,30 @@ using Icarus.Infrastructure.KeyboardInputProvider.KeyboardHook;
 using Moq;
 using System.Windows.Input;
 
-namespace Icarus.Infrastructure.Tests
+namespace Icarus.Infrastructure.Tests.KeyboardInputProviderTests
 {
     [TestFixture]
-    public class MoveDownTests
+    public class MoveDownReleasedTests : BaseKeyboardTests
     {
-        KeyboardInputProvider.KeyboardInputProvider keyboardInputProvider;
-        Mock<KeyboardListener> keyboardListenerMock;
-
         [SetUp]
         public void Setup()
         {
-            keyboardListenerMock = new Mock<KeyboardListener>();
-            keyboardInputProvider = new KeyboardInputProvider.KeyboardInputProvider(keyboardListenerMock.Object);
+            base.Setup();
         }
 
         [Test]
-        public void WhenDownArrowKeyDown_ShouldFireOnMoveDown()
+        public void WhenDownArrowKeyReleased_ShouldFireOnMoveBackwardStopped()
         {
             // arrange
             var wasCalled = false;
-            keyboardInputProvider.OnMoveBackward += (o, e) => wasCalled = true;
+            keyboardInputProvider.OnMoveBackwardStopped += (o, e) => wasCalled = true;
             bool isSysKey = false;
             var keyArgs = new RawKeyEventArgs(KeyCodesHelper.DownArrow, isSysKey, "Down");
             keyArgs.Key = Key.Down;
 
             // act
             keyboardListenerMock.Raise(
-                x => x.KeyDown += null, keyArgs);
+                x => x.KeyUp += null, keyArgs);
 
             // assert
             Assert.IsTrue(wasCalled);

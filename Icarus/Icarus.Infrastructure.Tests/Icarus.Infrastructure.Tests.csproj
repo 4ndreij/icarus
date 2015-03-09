@@ -60,8 +60,10 @@
   <ItemGroup>
     <Compile Include="CommandFactoryTests.cs" />
     <Compile Include="CommandInvokerTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\BaseKeyboardTests.cs" />
     <Compile Include="KeyboardInputProviderTests\KeyCodesHelper.cs" />
-    <Compile Include="KeyboardInputProviderTests\MoveDownTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveDownReleasedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveDownPressedTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
