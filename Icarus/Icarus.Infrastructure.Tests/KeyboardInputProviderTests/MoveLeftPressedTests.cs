@@ -21,7 +21,7 @@ namespace Icarus.Infrastructure.Tests.KeyboardInputProviderTests
         }
 
         [Test]
-        public void WhenLeftArrowKeyPressed_ShouldFireOnMoveBackward()
+        public void WhenLeftArrowKeyPressed_ShouldFireOnMoveLeft()
         {
             // arrange
             var wasCalled = false;
