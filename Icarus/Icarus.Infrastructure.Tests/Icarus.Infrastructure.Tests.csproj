@@ -62,7 +62,9 @@
     <Compile Include="CommandInvokerTests.cs" />
     <Compile Include="KeyboardInputProviderTests\BaseKeyboardTests.cs" />
     <Compile Include="KeyboardInputProviderTests\KeyCodesHelper.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveDownPressedTests.cs" />
     <Compile Include="KeyboardInputProviderTests\MoveUpPressedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveDownReleasedTests.cs" />
     <Compile Include="KeyboardInputProviderTests\MoveUpReleasedTests.cs" />
     <Compile Include="KeyboardInputProviderTests\MoveRightPressedTests.cs" />
     <Compile Include="KeyboardInputProviderTests\MoveLeftPressedTests.cs" />
