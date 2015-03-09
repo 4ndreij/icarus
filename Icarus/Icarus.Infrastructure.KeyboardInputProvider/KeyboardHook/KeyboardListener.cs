@@ -38,12 +38,12 @@ namespace Icarus.Infrastructure.KeyboardInputProvider.KeyboardHook
         /// <summary>
         /// Fired when any of the keys is pressed down.
         /// </summary>
-        public event RawKeyEventHandler KeyDown;
+        public virtual event RawKeyEventHandler KeyDown;
 
         /// <summary>
         /// Fired when any of the keys is released.
         /// </summary>
-        public event RawKeyEventHandler KeyUp;
+        public virtual event RawKeyEventHandler KeyUp;
 
         #region Inner workings
 

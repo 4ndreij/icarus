@@ -11,7 +11,14 @@ namespace Icarus.Infrastructure.KeyboardInputProvider
 
         public KeyboardInputProvider()
         {
-            keyListener = new KeyboardListener();
+            this.keyListener = new KeyboardListener();
+            keyListener.KeyDown += keyListener_KeyDown;
+            keyListener.KeyUp += keyListener_KeyUp;
+        }
+
+        public KeyboardInputProvider(KeyboardListener keyboardListener)
+        {
+            this.keyListener = keyboardListener;
             keyListener.KeyDown += keyListener_KeyDown;
             keyListener.KeyUp += keyListener_KeyUp;
         }
