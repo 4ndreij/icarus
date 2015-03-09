@@ -61,6 +61,8 @@
     <Compile Include="CommandFactoryTests.cs" />
     <Compile Include="CommandInvokerTests.cs" />
     <Compile Include="KeyboardInputProviderTests\BaseKeyboardTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\StopPressedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\StartPressedTests.cs" />
     <Compile Include="KeyboardInputProviderTests\KeyCodesHelper.cs" />
     <Compile Include="KeyboardInputProviderTests\MoveDownPressedTests.cs" />
     <Compile Include="KeyboardInputProviderTests\HoverPressedTests.cs" />
