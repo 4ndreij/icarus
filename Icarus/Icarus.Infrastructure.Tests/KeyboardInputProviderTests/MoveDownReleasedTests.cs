@@ -15,7 +15,7 @@ namespace Icarus.Infrastructure.Tests.KeyboardInputProviderTests
     public class MoveDownReleasedTests : BaseKeyboardTests
     {
         [SetUp]
-        public void Setup()
+        public override void Setup()
         {
             base.Setup();
         }
