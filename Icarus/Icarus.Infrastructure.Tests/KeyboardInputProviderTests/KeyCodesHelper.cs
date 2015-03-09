@@ -16,5 +16,6 @@ namespace Icarus.Infrastructure.Tests
         public const int PageDown = 20;
         public const int SKey = 62;
         public const int TKey = 63;
+        public const int HKey = 51;
     }
 }
