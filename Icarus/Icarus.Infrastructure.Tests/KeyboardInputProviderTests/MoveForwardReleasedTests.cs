@@ -12,7 +12,7 @@ using System.Windows.Input;
 namespace Icarus.Infrastructure.Tests.KeyboardInputProviderTests
 {
     [TestFixture]
-    public class MoveUpReleasedTests : BaseKeyboardTests
+    public class MoveForwardReleasedTests : BaseKeyboardTests
     {
         [SetUp]
         public override void Setup()

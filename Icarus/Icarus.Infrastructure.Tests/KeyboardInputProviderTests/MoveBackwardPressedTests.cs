@@ -12,7 +12,7 @@ using System.Windows.Input;
 namespace Icarus.Infrastructure.Tests.KeyboardInputProviderTests
 {
     [TestFixture]
-    public class MoveUpPressedTests : BaseKeyboardTests
+    public class MoveBackwardPressedTests : BaseKeyboardTests
     {
         [SetUp]
         public override void Setup()
@@ -21,14 +21,14 @@ namespace Icarus.Infrastructure.Tests.KeyboardInputProviderTests
         }
 
         [Test]
-        public void WhenUpArrowKeyPressed_ShouldFireOnMoveForward()
+        public void WhenDownArrowKeyPressed_ShouldFireOnMoveBackward()
         {
             // arrange
             var wasCalled = false;
-            keyboardInputProvider.OnMoveForward += (o, e) => wasCalled = true;
+            keyboardInputProvider.OnMoveBackward += (o, e) => wasCalled = true;
             bool isSysKey = false;
-            var keyArgs = new RawKeyEventArgs(KeyCodesHelper.UpArrow, isSysKey, "Up");
-            keyArgs.Key = Key.Up;
+            var keyArgs = new RawKeyEventArgs(KeyCodesHelper.DownArrow, isSysKey, "Down");
+            keyArgs.Key = Key.Down;
 
             // act
             keyboardListenerMock.Raise(

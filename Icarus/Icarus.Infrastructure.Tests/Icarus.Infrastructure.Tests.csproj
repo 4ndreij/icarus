@@ -66,10 +66,10 @@
     <Compile Include="KeyboardInputProviderTests\MoveLeftPressedTests.cs" />
     <Compile Include="KeyboardInputProviderTests\MoveRightReleasedTests.cs" />
     <Compile Include="KeyboardInputProviderTests\MoveLeftReleasedTests.cs" />
-    <Compile Include="KeyboardInputProviderTests\MoveUpPressedTests.cs" />
-    <Compile Include="KeyboardInputProviderTests\MoveUpReleasedTests.cs" />
-    <Compile Include="KeyboardInputProviderTests\MoveDownReleasedTests.cs" />
-    <Compile Include="KeyboardInputProviderTests\MoveDownPressedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveForwardPressedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveForwardReleasedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveBackwardReleasedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveBackwardPressedTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
