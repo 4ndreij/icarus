@@ -7,6 +7,7 @@ using Icarus.Infrastructure.Communication;
 using Icarus.ParrotDrone;
 using AR.Drone.Client;
 using Icarus.Core.DroneConfiguration;
+using Icarus.Core;
 
 namespace Icarus.UI
 {

@@ -5,7 +5,7 @@ using Icarus.Core.EventArguments;
 using Icarus.Core.Interfaces;
 using System.Collections.Generic;
 
-namespace Icarus.Infrastructure.InputProviders
+namespace Icarus.Core
 {
     public class Drone : IInputProviderAdapter
     {
