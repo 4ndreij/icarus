@@ -7,5 +7,6 @@ namespace Icarus.Core.Interfaces
     {
         event EventHandler<ProcessedCommandArgs> OnCommandProcessed;
         void SubscribeInputProvider(IInputProvider newInputProvider);
+        void ReplaceCommandFactory(ICommandFactory commandFactory);
     }
 }
