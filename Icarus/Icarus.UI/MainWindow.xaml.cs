@@ -146,13 +146,18 @@ namespace Icarus.UI
             try
             {
                 var providerLoaderAgent = new ProviderLoaderAgent<IDrone>(path);
-                var droneProvider = providerLoaderAgent.GetInputProvider();
+                var droneType = providerLoaderAgent.GetInputProvider();
                 var droneClient = App.Container.GetInstance<DroneClient>();
-                var drone = (IDrone)Activator.CreateInstance(droneProvider, droneClient);
 
+                var drone = CreateDroneInstance(droneType, droneClient);
+               
                 App.Container.Configure(x => x.For<IDrone>().Use(t => drone));
+                var newCommandFactory = App.Container.GetInstance<ICommandFactory>();
 
-                lblDrone.Content = droneProvider.FullName;
+                var providerAdapter = App.Container.GetInstance<IInputProviderAdapter>();
+                providerAdapter.ReplaceCommandFactory(newCommandFactory);
+
+                lblDrone.Content = droneType.FullName;
             }
             catch (AssemblyNotSupportedException assemblyNotSupportedException)
             {
@@ -167,6 +172,20 @@ namespace Icarus.UI
             {
                 MessageBox.Show("Other blaaa blaaa blaaa:" + ex);
             }
+        }
+
+        IDrone CreateDroneInstance(Type droneType, DroneClient droneClient)
+        {
+            IDrone drone = null;
+            try
+            {
+                drone = (IDrone)Activator.CreateInstance(droneType, droneClient);
+            }
+            catch (MissingMethodException)
+            {
+                drone = (IDrone)Activator.CreateInstance(droneType);
+            }
+            return drone;
         }
     }
 }

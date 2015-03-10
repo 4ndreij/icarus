@@ -9,7 +9,7 @@ namespace Icarus.Core
 {
     public class Drone : IInputProviderAdapter
     {
-        private readonly ICommandFactory commandFactory;
+        private ICommandFactory commandFactory;
         private readonly ICommunicator communicator;
         private readonly IList<IInputProvider> inputProviders;
 
@@ -33,6 +33,11 @@ namespace Icarus.Core
             this.commandFactory = commandFactory;
             this.communicator = communicator;
             SubscribeToInputProvidersEvents();
+        }
+
+        public void ReplaceCommandFactory(ICommandFactory commandFactory)
+        {
+            this.commandFactory = commandFactory;
         }
 
         public event EventHandler<ProcessedCommandArgs> OnCommandProcessed;

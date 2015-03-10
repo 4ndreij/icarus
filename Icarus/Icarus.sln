@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR.Drone.Client", "AR.Drone
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.ParrotDrone", "Icarus.ParrotDrone\Icarus.ParrotDrone.csproj", "{77D7BE58-5BD7-458E-AA06-5D872207C6DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.Fakes", "Icarus.Fakes\Icarus.Fakes.csproj", "{930A9225-7920-498C-B67E-0A0E2B91A84C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,12 @@ Global
 		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Development|Any CPU.Build.0 = Debug|Any CPU
 		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{930A9225-7920-498C-B67E-0A0E2B91A84C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{930A9225-7920-498C-B67E-0A0E2B91A84C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{930A9225-7920-498C-B67E-0A0E2B91A84C}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{930A9225-7920-498C-B67E-0A0E2B91A84C}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{930A9225-7920-498C-B67E-0A0E2B91A84C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{930A9225-7920-498C-B67E-0A0E2B91A84C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
