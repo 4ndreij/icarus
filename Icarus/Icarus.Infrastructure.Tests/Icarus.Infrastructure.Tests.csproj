@@ -55,16 +55,39 @@
       <HintPath>..\packages\structuremap.3.1.4.143\lib\net40\StructureMap.Net4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandFactoryTests.cs" />
     <Compile Include="CommandInvokerTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\BaseKeyboardTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\StopPressedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\StartPressedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\KeyCodesHelper.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveDownPressedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\HoverPressedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveUpPressedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveDownReleasedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\HoverReleasedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveUpReleasedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveRightPressedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveLeftPressedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveRightReleasedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveLeftReleasedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveForwardPressedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveForwardReleasedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveBackwardReleasedTests.cs" />
+    <Compile Include="KeyboardInputProviderTests\MoveBackwardPressedTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Icarus.Core\Icarus.Core.csproj">
       <Project>{2ED26CAF-E8D2-470E-AF94-4D90C945B0A5}</Project>
       <Name>Icarus.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Icarus.Infrastructure.KeyboardInputProvider\Icarus.Infrastructure.KeyboardInputProvider.csproj">
+      <Project>{a7f82657-e1d5-42f4-bcf6-915b898029c5}</Project>
+      <Name>Icarus.Infrastructure.KeyboardInputProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\Icarus.Infrastructure\Icarus.Infrastructure.csproj">
       <Project>{459f7d9f-78c3-4f25-807f-9bc74234cfaf}</Project>
