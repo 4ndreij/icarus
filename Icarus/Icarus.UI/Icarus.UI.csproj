@@ -124,10 +124,6 @@
       <Project>{2ed26caf-e8d2-470e-af94-4d90c945b0a5}</Project>
       <Name>Icarus.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Icarus.DroneClients\Icarus.DroneClients.csproj">
-      <Project>{77d7be58-5bd7-458e-aa06-5d872207c6db}</Project>
-      <Name>Icarus.DroneClients</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Icarus.Infrastructure.ProviderLoader\Icarus.Infrastructure.ProviderLoader.csproj">
       <Project>{6a9d34da-acfb-409c-ad64-4b4d4d476b6e}</Project>
       <Name>Icarus.Infrastructure.ProviderLoader</Name>
@@ -135,6 +131,10 @@
     <ProjectReference Include="..\Icarus.Infrastructure\Icarus.Infrastructure.csproj">
       <Project>{459f7d9f-78c3-4f25-807f-9bc74234cfaf}</Project>
       <Name>Icarus.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Icarus.ParrotDrone\Icarus.ParrotDrone.csproj">
+      <Project>{77d7be58-5bd7-458e-aa06-5d872207c6db}</Project>
+      <Name>Icarus.ParrotDrone</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

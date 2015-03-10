@@ -6,12 +6,12 @@ namespace Icarus.Core.Commands
 {
     public class ConfigureCommand : Command
     {
-        readonly IDroneClient droneClient;
+        readonly IDrone drone;
         DroneConfiguration.DroneConfiguration droneConfiguration;
 
-        public ConfigureCommand(IDroneClient droneClient)
+        public ConfigureCommand(IDrone drone)
         {
-            this.droneClient = droneClient;
+            this.drone = drone;
         }
 
         public void SetConfiguration(DroneConfiguration.DroneConfiguration droneConfiguration)
@@ -21,7 +21,7 @@ namespace Icarus.Core.Commands
 
         public override void Execute()
         {
-            droneClient.Configure(droneConfiguration);
+            drone.Configure(droneConfiguration);
         }
     }
 }

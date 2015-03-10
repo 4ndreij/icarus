@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AR.Drone.Client.Command
+namespace AR.Drone.Client.Enums
 {
     [Flags]
     public enum FlightMode

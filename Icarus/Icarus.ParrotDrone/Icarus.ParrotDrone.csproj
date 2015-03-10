@@ -7,8 +7,8 @@
     <ProjectGuid>{77D7BE58-5BD7-458E-AA06-5D872207C6DB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Icarus.DroneClients</RootNamespace>
-    <AssemblyName>Icarus.DroneClients</AssemblyName>
+    <RootNamespace>Icarus.ParrotDrone</RootNamespace>
+    <AssemblyName>Icarus.ParrotDrone</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WifiDroneClient.cs" />
+    <Compile Include="ParrotDrone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

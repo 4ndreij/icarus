@@ -16,12 +16,12 @@ namespace Icarus.Infrastructure.Tests
     public class CommandFactoryTests
     {
         CommandFactory.CommandFactory commandFactory;
-        Mock<IDroneClient> droneClientMock;
+        Mock<IDrone> droneClientMock;
 
         [SetUp]
         public void Setup()
         {
-            droneClientMock = new Mock<IDroneClient>();
+            droneClientMock = new Mock<IDrone>();
             commandFactory = new CommandFactory.CommandFactory(droneClientMock.Object);
         }
 

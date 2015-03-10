@@ -1,4 +1,5 @@
-﻿using Icarus.Core.Interfaces;
+﻿using Icarus.Core.DroneConfiguration;
+using Icarus.Core.Interfaces;
 using log4net;
 using StructureMap;
 using System.Configuration;
@@ -17,7 +18,7 @@ namespace Icarus.UI
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             var bootstrapper = new Bootstrapper();
-            Container = bootstrapper.Bootstrap();
+            Container = bootstrapper.Bootstrap(Constants.DroneConfiguration);
         
             Logger.Info("Application Started");
         }

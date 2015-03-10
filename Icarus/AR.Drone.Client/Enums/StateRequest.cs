@@ -1,4 +1,4 @@
-﻿namespace AR.Drone.Client
+﻿namespace AR.Drone.Client.Enums
 {
     internal enum StateRequest
     {

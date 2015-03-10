@@ -1,5 +1,6 @@
 using System;
 using AR.Drone.Data;
+using AR.Drone.Client.Enums;
 
 namespace AR.Drone.Client
 {

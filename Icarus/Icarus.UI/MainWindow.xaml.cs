@@ -10,6 +10,7 @@ using System.Windows;
 using Icarus.Infrastructure.ProviderLoader;
 using Icarus.Infrastructure.ProviderLoader.ProviderLoaderExceptions;
 using Microsoft.Win32;
+using AR.Drone.Client;
 
 namespace Icarus.UI
 {
@@ -85,14 +86,8 @@ namespace Icarus.UI
 
         private void btnLoadProvider_Click(object sender, RoutedEventArgs e)
         {
-            var openFileDialog = new OpenFileDialog
-                                     {
-                                         Multiselect = false
-                                     };
-            if (openFileDialog.ShowDialog().GetValueOrDefault())
-            {
-               LoadAndSetupProvider(openFileDialog.FileName);
-            }
+            var fileName = FileDialog();
+            LoadAndSetupProvider(fileName);
         }
 
         private void LoadAndSetupProvider(string path)
@@ -100,13 +95,17 @@ namespace Icarus.UI
             try
             {
                 var providerLoaderAgent = new ProviderLoaderAgent<IInputProvider>(path);
-                var inputProvider = providerLoaderAgent.GetInputProvider();
+                var inputProviderType = providerLoaderAgent.GetInputProvider();
+                var inputProvider = (IInputProvider)Activator.CreateInstance(inputProviderType);
+                
+                App.Container.Configure(x => x.For<IInputProvider>()
+                    .Use(t => inputProvider));
 
-                App.Container.Configure(x => x.For<IInputProvider>().Use(t => (IInputProvider) Activator.CreateInstance(inputProvider)));
                 inputProviderAdapter = App.Container.GetInstance<IInputProviderAdapter>();
+                inputProviderAdapter.SubscribeInputProvider(inputProvider);
                 inputProviderAdapter.OnCommandProcessed += inputProviderAdapter_OnCommandProcessed;
 
-                lblProvider.Content = inputProvider.FullName;
+                lblProvider.Content = inputProviderType.FullName;
             }
             catch (AssemblyNotSupportedException assemblyNotSupportedException)
             {
@@ -120,6 +119,53 @@ namespace Icarus.UI
             catch (Exception ex)
             {
                 MessageBox.Show("Other blaaa:" + ex);
+            }
+        }
+
+        private void btnLoadDrone_Click(object sender, RoutedEventArgs e)
+        {
+            var fileName = FileDialog();
+            LoadAndSetupDrone(fileName);
+        }
+
+        string FileDialog()
+        {
+            var openFileDialog = new OpenFileDialog
+            {
+                Multiselect = false
+            };
+            if (openFileDialog.ShowDialog().GetValueOrDefault())
+            {
+                return openFileDialog.FileName;
+            }
+            return null;
+        }
+
+        void LoadAndSetupDrone(string path)
+        {
+            try
+            {
+                var providerLoaderAgent = new ProviderLoaderAgent<IDrone>(path);
+                var droneProvider = providerLoaderAgent.GetInputProvider();
+                var droneClient = App.Container.GetInstance<DroneClient>();
+                var drone = (IDrone)Activator.CreateInstance(droneProvider, droneClient);
+
+                App.Container.Configure(x => x.For<IDrone>().Use(t => drone));
+
+                lblDrone.Content = droneProvider.FullName;
+            }
+            catch (AssemblyNotSupportedException assemblyNotSupportedException)
+            {
+                MessageBox.Show(string.Format("The assembly on path \"{0}\" could not be loaded.", assemblyNotSupportedException.Path));
+            }
+            catch (ProviderNotFoundException providerNotFoundException)
+            {
+                MessageBox.Show(string.Format("The assembly \"{0}\" on path \"{1}\" does not contain a valid drone.", providerNotFoundException.Assembly.FullName,
+                                              providerNotFoundException.Path));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Other blaaa blaaa blaaa:" + ex);
             }
         }
     }

@@ -5,11 +5,11 @@ namespace Icarus.Core.Tests.CommandTests
 {
     public abstract class BaseCommandTests
     {
-        protected Mock<IDroneClient> DroneClientMock { get; set; }
+        protected Mock<IDrone> DroneClientMock { get; set; }
 
         public virtual void Setup()
         {
-            DroneClientMock = new Mock<IDroneClient>();
+            DroneClientMock = new Mock<IDrone>();
         }
     }
 }

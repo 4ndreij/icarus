@@ -1,3 +1,4 @@
+using AR.Drone.Client.Enums;
 using System;
 using System.Globalization;
 

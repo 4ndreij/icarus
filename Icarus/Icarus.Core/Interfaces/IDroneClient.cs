@@ -1,6 +1,6 @@
 ﻿namespace Icarus.Core.Interfaces
 {
-    public interface IDroneClient : IDynamicLoadable
+    public interface IDrone : IDynamicLoadable
     {
         void Configure(DroneConfiguration.DroneConfiguration droneConfiguration);
 

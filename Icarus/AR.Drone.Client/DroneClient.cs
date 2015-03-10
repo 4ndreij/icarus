@@ -10,6 +10,7 @@ using AR.Drone.Data;
 using AR.Drone.Data.Navigation;
 using AR.Drone.Infrastructure;
 using AR.Drone.Client.Configuration;
+using AR.Drone.Client.Enums;
 
 namespace AR.Drone.Client
 {
@@ -196,7 +197,7 @@ namespace AR.Drone.Client
 
         #region Api
 
-        public Task<Settings> Configure()
+        public Task<Settings> GetConfigurationTask()
         {
             var configurationAcquisition = new ConfigurationAcquisition(this);
             var task = configurationAcquisition.CreateTask();
