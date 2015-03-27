@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.Core", "Icarus.Core\Icarus.Core.csproj", "{2ED26CAF-E8D2-470E-AF94-4D90C945B0A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.Infrastructure", "Icarus.Infrastructure\Icarus.Infrastructure.csproj", "{459F7D9F-78C3-4F25-807F-9BC74234CFAF}"
@@ -31,6 +29,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR.Drone.Client", "AR.Drone.Client\AR.Drone.Client.csproj", "{93E2D2F2-5E9A-4C03-9FCD-0A364BEEFEFD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.ParrotDrone", "Icarus.ParrotDrone\Icarus.ParrotDrone.csproj", "{77D7BE58-5BD7-458E-AA06-5D872207C6DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.Infrastructure.KinectInputProvider", "Icarus.Infrastructure.KinectInputProvider\Icarus.Infrastructure.KinectInputProvider.csproj", "{FE7CE53A-72A7-4E87-B772-E896FB1D55A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -104,6 +104,12 @@ Global
 		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Development|Any CPU.Build.0 = Debug|Any CPU
 		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77D7BE58-5BD7-458E-AA06-5D872207C6DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE7CE53A-72A7-4E87-B772-E896FB1D55A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE7CE53A-72A7-4E87-B772-E896FB1D55A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE7CE53A-72A7-4E87-B772-E896FB1D55A1}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE7CE53A-72A7-4E87-B772-E896FB1D55A1}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{FE7CE53A-72A7-4E87-B772-E896FB1D55A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE7CE53A-72A7-4E87-B772-E896FB1D55A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

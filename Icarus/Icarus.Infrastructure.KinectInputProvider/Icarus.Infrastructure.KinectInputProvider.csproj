@@ -38,6 +38,9 @@
     <Reference Include="Microsoft.Kinect, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Kinect.2.0.1410.19000\lib\net45\Microsoft.Kinect.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Kinect.VisualGestureBuilder, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <HintPath>..\packages\Microsoft.Kinect.VisualGestureBuilder.2.0.1410.19000\lib\net45\Microsoft.Kinect.VisualGestureBuilder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,7 +55,10 @@
     <Compile Include="IKinectSensorHandler.cs" />
     <Compile Include="IPose.cs" />
     <Compile Include="KinectInputProvider.cs" />
+    <Compile Include="LeftPose.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RightPose.cs" />
+    <Compile Include="UpPose.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Icarus.Core\Icarus.Core.csproj">
@@ -62,9 +68,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="vgbtechs\MultiGestures.gbd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="vgbtechs\AdaBoostTech.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vgbtechs\RFRProgressTech.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(ProjectDir)\vgbtechs\MultiGestures.gbd $(TargetDir)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

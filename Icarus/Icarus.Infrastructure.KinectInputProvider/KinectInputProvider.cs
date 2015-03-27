@@ -8,7 +8,7 @@ namespace Icarus.Infrastructure.KeyboardInputProvider
 {
     public class KinectInputProvider : IInputProvider, IDisposable
     {
-        private Dictionary<PoseType, Action<IPose>> _activePosesActionList;        
+        private readonly Dictionary<PoseType, Action<IPose>> _activePosesActionList;        
 
         public KinectSensorHandler _sensorHandler;
        
@@ -19,11 +19,13 @@ namespace Icarus.Infrastructure.KeyboardInputProvider
             if (!_sensorHandler.StartSensor())
                 return;
 
-            _activePosesActionList = new Dictionary<PoseType, Action<IPose>>();
-            _activePosesActionList.Add(PoseType.Up, MoveUp);
-            _activePosesActionList.Add(PoseType.Down, MoveDown);
-            _activePosesActionList.Add(PoseType.Left, MoveLeft);
-            _activePosesActionList.Add(PoseType.Right, MoveRight);
+            _activePosesActionList = new Dictionary<PoseType, Action<IPose>>
+                {
+                    {PoseType.Up, MoveUp},
+                    {PoseType.Down, MoveDown},
+                    {PoseType.Left, MoveLeft},
+                    {PoseType.Right, MoveRight}
+                };
 
             _sensorHandler.KinectConnected += sensorHandler_KinectConnected;
             _sensorHandler.KinectDisconnected += sensorHandler_KinectDisconnected;

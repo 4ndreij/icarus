@@ -1,10 +1,10 @@
 ﻿namespace Icarus.Infrastructure.KinectInputProvider
 {
-    class DownPose : IPose
+    class UpPose : IPose
     {
-        public DownPose()
+        public UpPose()
         {
-            Type = PoseType.Down;
+            Type = PoseType.Up;
         }
         public bool IsActive { get; set; }
 

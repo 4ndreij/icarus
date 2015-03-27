@@ -18,7 +18,7 @@
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -123,6 +123,10 @@
     <ProjectReference Include="..\Icarus.Core\Icarus.Core.csproj">
       <Project>{2ed26caf-e8d2-470e-af94-4d90c945b0a5}</Project>
       <Name>Icarus.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Icarus.Infrastructure.KinectInputProvider\Icarus.Infrastructure.KinectInputProvider.csproj">
+      <Project>{fe7ce53a-72a7-4e87-b772-e896fb1d55a1}</Project>
+      <Name>Icarus.Infrastructure.KinectInputProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\Icarus.Infrastructure.ProviderLoader\Icarus.Infrastructure.ProviderLoader.csproj">
       <Project>{6a9d34da-acfb-409c-ad64-4b4d4d476b6e}</Project>
